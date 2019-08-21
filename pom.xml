@@ -317,6 +317,7 @@
     <modules>
         <module>ego-common</module>
         <module>ego-rpc</module>
+        <module>ego-manager-web</module>
     </modules>
 
 

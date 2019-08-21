@@ -93,10 +93,30 @@ CMS
  Solr4.10.3
  Redis 3.0.0
  Win7 操作系统
+
 2.4 人员配置
+
 产品经理：3 人，确定需求以及给出产品原型图。Axure
 项目经理：1 人，项目管理。
 前端团队：5 人，根据产品经理给出的原型制作静态页面。
 后端团队：20 人，实现产品功能。
 测试团队：5 人，测试所有的功能。
 运维团队：3 人，项目的发布以及维护。
+
+项目model结构图:
+
+[INFO] ego                                                                [pom]
+
+[INFO] ego-common                                                         [jar]
+
+[INFO] ego-rpc                                                            [pom]
+
+[INFO] ego-rpc-pojo                                                       [jar]
+
+[INFO] ego-rpc-mapper                                                     [jar]
+
+[INFO] ego-rpc-service                                                    [jar]
+
+[INFO] ego-rpc-service-impl                                               [jar]
+
+[INFO] ego-manager-web Maven Webapp                                       [war]

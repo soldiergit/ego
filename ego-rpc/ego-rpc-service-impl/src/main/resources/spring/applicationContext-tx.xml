@@ -37,10 +37,10 @@
 	<!-- 事务切面的配置 -->
 	<aop:config>
 		<!-- 切点 -->
-		<aop:pointcut expression="execution(* com.soldier.ego.service.*.*(..))"
+		<aop:pointcut expression="execution(* com.soldier.ego.rpc.service.*.*(..))"
 			id="txPc" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPc" />
 	</aop:config>
 
-	<jdbc:embedded-database id="dataSource"/>
+	<!--<jdbc:embedded-database id="dataSource"/>-->
 </beans>

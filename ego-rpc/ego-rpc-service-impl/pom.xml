@@ -113,26 +113,26 @@
     </dependencies>
 
     <build>
-        <plugins>
-            <!-- 指定项目的打包插件信息 -->
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <!-- 指定打包描述文件的位置：相对项目根目录的路径 -->
-                    <!-- assembly打包的描述文件 -->
-                    <descriptor>assembly/assembly.xml</descriptor>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
+        <!--<plugins>-->
+            <!--&lt;!&ndash; 指定项目的打包插件信息 &ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<artifactId>maven-assembly-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--&lt;!&ndash; 指定打包描述文件的位置：相对项目根目录的路径 &ndash;&gt;-->
+                    <!--&lt;!&ndash; assembly打包的描述文件 &ndash;&gt;-->
+                    <!--<descriptor>assembly/assembly.xml</descriptor>-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>make-assembly</id>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>single</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
 
         <resources>
             <!--用于资源拷贝-->

@@ -17,7 +17,9 @@
 	<dubbo:protocol name="dubbo" port="20000" />
 	 
 	 
-	 
+	 <!--分布dubbo服务-->
+	<dubbo:service interface="com.soldier.ego.rpc.service.ItemService" ref="itemServiceImpl"></dubbo:service>
+
 	 
 	 
 	 

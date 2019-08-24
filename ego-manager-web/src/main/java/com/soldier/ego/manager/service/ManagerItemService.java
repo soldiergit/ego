@@ -4,8 +4,6 @@ import com.soldier.ego.beans.EgoResult;
 import com.soldier.ego.beans.PageResult;
 import com.soldier.ego.rpc.pojo.TbItem;
 
-import java.util.List;
-
 /**
  * @ProjectName: ego
  * @author: soldier
@@ -29,4 +27,9 @@ public interface ManagerItemService {
      * 商品信息的下架
      */
     public EgoResult instockItem(Long[] ids);
+
+    /**
+     * 删除商品信息
+     */
+    public EgoResult deleteItem(Long[] ids);
 }

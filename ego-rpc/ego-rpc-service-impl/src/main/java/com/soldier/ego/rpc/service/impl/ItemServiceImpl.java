@@ -61,12 +61,28 @@ public class ItemServiceImpl implements ItemService {
         TbItemExample.Criteria criteria = example.createCriteria();
         criteria.andIdIn(itemIds);
 
-
         //where id in (?,?,?）
         tbItemMapper.updateByExample(item, example);
 
         //where id = ?
         //tbItemMapper.deleteByPrimaryKey()
+
+        return EgoResult.ok();
+    }
+
+    @Override
+    public EgoResult deleteItem(List<Long> itemIds) {
+
+        //动态产生where条件
+        TbItemExample example = new TbItemExample();
+        TbItemExample.Criteria criteria = example.createCriteria();
+        criteria.andIdIn(itemIds);
+
+        //where id in (?,?,?）
+        tbItemMapper.deleteByExample(example);
+
+        //where id = ?
+        //tbItemMapper.deleteByPrimaryKey();
 
         return EgoResult.ok();
     }

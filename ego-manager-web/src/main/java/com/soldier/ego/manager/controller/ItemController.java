@@ -54,4 +54,13 @@ public class ItemController {
     public EgoResult instockItem(Long[] ids) {
         return managerItemService.instockItem(ids);
     }
+
+    /**
+     * 商品信息的删除请求
+     */
+    @RequestMapping(value = "item/delete", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
+    @ResponseBody
+    public EgoResult deleteItem(Long[] ids) {
+        return managerItemService.deleteItem(ids);
+    }
 }

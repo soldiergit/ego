@@ -24,7 +24,12 @@ public interface ItemService {
      * 完成商品上下架状态的修改
      * @param itemIds 商品的idj集合
      * @param flag true:上架,false:下架
-     * @return
      */
     public EgoResult updateItemStatus(List<Long> itemIds, Boolean flag);
+
+    /**
+     * 删除商品信息
+     * @param itemIds  需要删除的商品信息的id集合
+     */
+    public EgoResult deleteItem(List<Long> itemIds);
 }

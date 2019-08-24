@@ -7,8 +7,6 @@ import com.soldier.ego.rpc.pojo.TbItem;
 import com.soldier.ego.rpc.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -41,7 +39,17 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 
     @Override
     public EgoResult instockItem(Long[] ids) {
+        //将ids数组转为List集合
         List<Long> itemIds = Arrays.asList(ids);
+        //调用远程服务
         return itemServiceProxy.updateItemStatus(itemIds, false);
+    }
+
+    @Override
+    public EgoResult deleteItem(Long[] ids) {
+        //将ids数组转为List集合
+        List<Long> itemIds = Arrays.asList(ids);
+        //调用远程服务
+        return itemServiceProxy.deleteItem(itemIds);
     }
 }

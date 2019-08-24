@@ -1,7 +1,10 @@
 package com.soldier.ego.manager.service;
 
+import com.soldier.ego.beans.EgoResult;
 import com.soldier.ego.beans.PageResult;
 import com.soldier.ego.rpc.pojo.TbItem;
+
+import java.util.List;
 
 /**
  * @ProjectName: ego
@@ -16,4 +19,14 @@ public interface ManagerItemService {
      * 实现商品信息的分页查询
      */
     public PageResult<TbItem> selectItemList(Integer page, Integer rows);
+
+    /**
+     * 商品信息的上架
+     */
+    public EgoResult reshelfItem(Long[] ids);
+
+    /**
+     * 商品信息的下架
+     */
+    public EgoResult instockItem(Long[] ids);
 }

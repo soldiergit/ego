@@ -1,7 +1,10 @@
 package com.soldier.ego.rpc.service;
 
+import com.soldier.ego.beans.EgoResult;
 import com.soldier.ego.beans.PageResult;
 import com.soldier.ego.rpc.pojo.TbItem;
+
+import java.util.List;
 
 /**
  * @ProjectName: ego
@@ -16,4 +19,12 @@ public interface ItemService {
      * 实现商品信息的分页查询
      */
     public PageResult<TbItem> selectItemList(Integer page, Integer rows);
+
+    /**
+     * 完成商品上下架状态的修改
+     * @param itemIds 商品的idj集合
+     * @param flag true:上架,false:下架
+     * @return
+     */
+    public EgoResult updateItemStatus(List<Long> itemIds, Boolean flag);
 }

@@ -2,6 +2,7 @@ package com.soldier.ego.rpc.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.soldier.ego.beans.EgoResult;
 import com.soldier.ego.beans.PageResult;
 import com.soldier.ego.rpc.mapper.TbItemMapper;
 import com.soldier.ego.rpc.pojo.TbItem;
@@ -42,5 +43,31 @@ public class ItemServiceImpl implements ItemService {
         result.setTotal(ps.getTotal());
 
         return result;
+    }
+
+    @Override
+    public EgoResult updateItemStatus(List<Long> itemIds, Boolean flag) {
+
+        //创建tbItem对象
+        TbItem item = new TbItem();
+        if (flag) {
+            item.setStatus((byte) 1);
+        } else {
+            item.setStatus((byte) 2);
+        }
+
+        //动态产生where条件
+        TbItemExample example = new TbItemExample();
+        TbItemExample.Criteria criteria = example.createCriteria();
+        criteria.andIdIn(itemIds);
+
+
+        //where id in (?,?,?）
+        tbItemMapper.updateByExample(item, example);
+
+        //where id = ?
+        //tbItemMapper.deleteByPrimaryKey()
+
+        return EgoResult.ok();
     }
 }

@@ -1,5 +1,6 @@
 package com.soldier.ego.manager.controller;
 
+import com.soldier.ego.beans.EgoResult;
 import com.soldier.ego.beans.PageResult;
 import com.soldier.ego.manager.service.ManagerItemService;
 import com.soldier.ego.rpc.pojo.TbItem;
@@ -34,5 +35,23 @@ public class ItemController {
     @ResponseBody
     public PageResult<TbItem> itemList(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "30") Integer rows) {
         return managerItemService.selectItemList(page, rows);
+    }
+
+    /**
+     * 商品信息的上架请求
+     */
+    @RequestMapping(value = "item/reshelf", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
+    @ResponseBody
+    public EgoResult reshelfItem(Long[] ids) {
+        return managerItemService.reshelfItem(ids);
+    }
+
+    /**
+     * 商品信息的下架请求
+     */
+    @RequestMapping(value = "item/instock", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
+    @ResponseBody
+    public EgoResult instockItem(Long[] ids) {
+        return managerItemService.instockItem(ids);
     }
 }

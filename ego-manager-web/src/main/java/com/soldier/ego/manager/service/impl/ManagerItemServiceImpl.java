@@ -1,11 +1,16 @@
 package com.soldier.ego.manager.service.impl;
 
+import com.soldier.ego.beans.EgoResult;
 import com.soldier.ego.beans.PageResult;
 import com.soldier.ego.manager.service.ManagerItemService;
 import com.soldier.ego.rpc.pojo.TbItem;
 import com.soldier.ego.rpc.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @ProjectName: ego
@@ -24,5 +29,19 @@ public class ManagerItemServiceImpl implements ManagerItemService {
     @Override
     public PageResult<TbItem> selectItemList(Integer page, Integer rows) {
         return itemServiceProxy.selectItemList(page, rows);
+    }
+
+    @Override
+    public EgoResult reshelfItem(Long[] ids) {
+        //将ids数组转为List集合
+        List<Long> itemIds = Arrays.asList(ids);
+        //调用远程服务
+        return itemServiceProxy.updateItemStatus(itemIds, true);
+    }
+
+    @Override
+    public EgoResult instockItem(Long[] ids) {
+        List<Long> itemIds = Arrays.asList(ids);
+        return itemServiceProxy.updateItemStatus(itemIds, false);
     }
 }

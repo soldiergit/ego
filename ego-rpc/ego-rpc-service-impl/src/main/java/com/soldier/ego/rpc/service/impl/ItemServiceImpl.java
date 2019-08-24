@@ -26,6 +26,7 @@ public class ItemServiceImpl implements ItemService {
     @Autowired
     private TbItemMapper tbItemMapper;
 
+    @Override
     public PageResult<TbItem> selectItemList(Integer page, Integer rows) {
 
         //执行分页操作

@@ -51,10 +51,10 @@
    <!-- 放到spring中的mapper实现类对象的id是mapper接口类名首字母小写 -->
    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
       <!-- 多个包用逗号或者分号隔开 -->
-      <!-- <property name="basePackage" value="com.soldier.hello,com.soldier.ego.mapper"></property> -->
+<!--      <property name="basePackage" value="com.soldier.hello,com.soldier.ego.mapper"></property> -->
       <property name="basePackage" value="com.soldier.ego.rpc.mapper"></property>
       <!-- 如果有多个SqlSessionFactory的时候用于指定使用哪个，单个可以不用配置 -->
-      <!-- <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property> -->
+<!--      <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property> -->
    </bean>
       
 </beans>

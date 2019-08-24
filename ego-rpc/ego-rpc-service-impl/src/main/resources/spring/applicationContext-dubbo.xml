@@ -16,11 +16,7 @@
 	<!-- 指定服务发布的端口：10000 -->
 	<dubbo:protocol name="dubbo" port="20000" />
 	 
-	 
-	 <!--分布dubbo服务-->
-	<dubbo:service interface="com.soldier.ego.rpc.service.ItemService" ref="itemServiceImpl"></dubbo:service>
-
-	 
-	 
+	 <!-- 发布dubbo服务 -->
+	 <dubbo:service interface="com.soldier.ego.rpc.service.ItemService" ref="itemServiceImpl" timeout="1200000"></dubbo:service>
 	 
 </beans>

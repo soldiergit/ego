@@ -1,6 +1,5 @@
 package com.soldier.ego.manager.controller;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,15 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @create 19-8-21 上午10:01
  * @Describe: 页面跳转的controller
  **/
-
 @Controller
 public class PageController {
 
     /**
      * 加载商城后台系统的首页
      */
-    @RequestMapping("/")
+    @RequestMapping(value = { "", "/" })
     public String showIndex() {
+        System.out.println("首页");
         return "index";
     }
 

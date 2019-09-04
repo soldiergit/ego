@@ -13,8 +13,10 @@ import java.util.List;
  **/
 public class PageResult<T> implements Serializable {
 
-    private List<T> rows;   //对象集合
-    private long total;     //总记录数
+    //对象集合
+    private List<T> rows;
+    //总记录数
+    private long total;
 
     public List<T> getRows() {
         return rows;

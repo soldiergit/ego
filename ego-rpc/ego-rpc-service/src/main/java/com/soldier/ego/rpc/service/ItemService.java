@@ -11,7 +11,7 @@ import java.util.List;
  * @author: soldier
  * @Email: 583403411@qq.com
  * @create 19-8-22 下午4:34
- * @Describe:
+ * @Describe: 商品信息接口
  **/
 public interface ItemService {
 

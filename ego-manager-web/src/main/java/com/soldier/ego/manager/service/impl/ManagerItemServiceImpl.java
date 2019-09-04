@@ -15,7 +15,7 @@ import java.util.List;
  * @author: soldier
  * @Email: 583403411@qq.com
  * @create 19-8-21 下午4:39
- * @Describe:
+ * @Describe: 商品信息
  **/
 @Service
 public class ManagerItemServiceImpl implements ManagerItemService {

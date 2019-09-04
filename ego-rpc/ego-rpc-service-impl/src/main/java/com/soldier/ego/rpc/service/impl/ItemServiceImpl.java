@@ -7,6 +7,7 @@ import com.soldier.ego.beans.PageResult;
 import com.soldier.ego.rpc.mapper.TbItemMapper;
 import com.soldier.ego.rpc.pojo.TbItem;
 import com.soldier.ego.rpc.pojo.TbItemExample;
+import com.soldier.ego.rpc.pojo.TbItemExample.Criteria;
 import com.soldier.ego.rpc.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ import java.util.List;
  * @author: soldier
  * @Email: 583403411@qq.com
  * @create 19-8-21 上午11:43
- * @Describe:
+ * @Describe: 商品信息接口
  **/
 @Service
 public class ItemServiceImpl implements ItemService {
@@ -57,15 +58,15 @@ public class ItemServiceImpl implements ItemService {
         }
 
         //动态产生where条件
-        TbItemExample example = new TbItemExample();
-        TbItemExample.Criteria criteria = example.createCriteria();
+        TbItemExample example=new TbItemExample();
+        Criteria criteria = example.createCriteria();
         criteria.andIdIn(itemIds);
 
         //where id in (?,?,?）
         tbItemMapper.updateByExample(item, example);
 
         //where id = ?
-        //tbItemMapper.deleteByPrimaryKey()
+        //tbItemMapper.updateByPrimaryKey()
 
         return EgoResult.ok();
     }
@@ -75,7 +76,7 @@ public class ItemServiceImpl implements ItemService {
 
         //动态产生where条件
         TbItemExample example = new TbItemExample();
-        TbItemExample.Criteria criteria = example.createCriteria();
+        Criteria criteria = example.createCriteria();
         criteria.andIdIn(itemIds);
 
         //where id in (?,?,?）

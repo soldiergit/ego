@@ -9,7 +9,7 @@ import com.soldier.ego.rpc.pojo.TbItem;
  * @author: soldier
  * @Email: 583403411@qq.com
  * @create 19-8-21 下午4:38
- * @Describe:
+ * @Describe: 商品信息
  **/
 public interface ManagerItemService {
 

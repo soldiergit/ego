@@ -2,7 +2,9 @@ package com.soldier.ego.manager.service;
 
 import com.soldier.ego.beans.EgoResult;
 import com.soldier.ego.beans.PageResult;
+import com.soldier.ego.beans.PictureResult;
 import com.soldier.ego.rpc.pojo.TbItem;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @ProjectName: ego
@@ -32,4 +34,9 @@ public interface ManagerItemService {
      * 删除商品信息
      */
     public EgoResult deleteItem(Long[] ids);
+
+    /**
+     * 上传商品图片
+     */
+    public PictureResult uploadItemPic(MultipartFile file);
 }

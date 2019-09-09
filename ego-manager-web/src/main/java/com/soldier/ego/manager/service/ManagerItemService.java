@@ -39,4 +39,9 @@ public interface ManagerItemService {
      * 上传商品图片
      */
     public PictureResult uploadItemPic(MultipartFile file);
+
+    /**
+     *
+     */
+    public EgoResult saveItem(TbItem item, String desc);
 }

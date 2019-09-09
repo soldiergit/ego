@@ -63,4 +63,13 @@ public class ItemController {
     public EgoResult deleteItem(Long[] ids) {
         return managerItemService.deleteItem(ids);
     }
+
+    /**
+     * 商品信息的发布请求
+     */
+    @RequestMapping(value = "item/save", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
+    @ResponseBody
+    public EgoResult saveItem(TbItem item, String desc) {
+        return managerItemService.saveItem(item, desc);
+    }
 }

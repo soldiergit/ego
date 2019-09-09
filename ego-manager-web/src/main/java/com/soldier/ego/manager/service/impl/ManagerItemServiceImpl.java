@@ -3,6 +3,7 @@ package com.soldier.ego.manager.service.impl;
 import com.soldier.ego.beans.*;
 import com.soldier.ego.manager.service.ManagerItemService;
 import com.soldier.ego.rpc.pojo.TbItem;
+import com.soldier.ego.rpc.pojo.TbItemDesc;
 import com.soldier.ego.rpc.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -115,5 +117,28 @@ public class ManagerItemServiceImpl implements ManagerItemService {
             result.setMessage("error");
         }
         return result;
+    }
+
+    @Override
+    public EgoResult saveItem(TbItem item, String desc) {
+
+        //当前时间
+        Date date = new Date();
+
+        //给item对象封装数据
+        long itemId = IDUtils.genItemId();  //自己产生商品的id，满足后期的分库分表的需求
+        item.setId(itemId);
+        item.setStatus((byte) 1);
+        item.setCreated(date);
+        item.setUpdated(date);
+
+        //给itemDesc对象封装数据
+        TbItemDesc itemDesc = new TbItemDesc();
+        itemDesc.setItemDesc(desc);
+        itemDesc.setItemId(itemId);
+        itemDesc.setCreated(date);
+        itemDesc.setUpdated(date);
+
+        return itemServiceProxy.saveItem(item, itemDesc);
     }
 }

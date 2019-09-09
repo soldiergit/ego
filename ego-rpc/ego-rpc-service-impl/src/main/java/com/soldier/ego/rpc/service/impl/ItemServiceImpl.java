@@ -4,8 +4,10 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.soldier.ego.beans.EgoResult;
 import com.soldier.ego.beans.PageResult;
+import com.soldier.ego.rpc.mapper.TbItemDescMapper;
 import com.soldier.ego.rpc.mapper.TbItemMapper;
 import com.soldier.ego.rpc.pojo.TbItem;
+import com.soldier.ego.rpc.pojo.TbItemDesc;
 import com.soldier.ego.rpc.pojo.TbItemExample;
 import com.soldier.ego.rpc.pojo.TbItemExample.Criteria;
 import com.soldier.ego.rpc.service.ItemService;
@@ -27,6 +29,8 @@ public class ItemServiceImpl implements ItemService {
     //注入mapper接口代理对象
     @Autowired
     private TbItemMapper tbItemMapper;
+    @Autowired
+    private TbItemDescMapper tbItemDescMapper;
 
     @Override
     public PageResult<TbItem> selectItemList(Integer page, Integer rows) {
@@ -85,6 +89,14 @@ public class ItemServiceImpl implements ItemService {
         //where id = ?
         //tbItemMapper.deleteByPrimaryKey();
 
+        return EgoResult.ok();
+    }
+
+    @Override
+    public EgoResult saveItem(TbItem item, TbItemDesc itemDesc) {
+
+        tbItemMapper.insert(item);
+        tbItemDescMapper.insert(itemDesc);
         return EgoResult.ok();
     }
 }

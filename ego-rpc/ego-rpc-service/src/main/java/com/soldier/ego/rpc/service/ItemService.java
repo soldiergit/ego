@@ -3,6 +3,7 @@ package com.soldier.ego.rpc.service;
 import com.soldier.ego.beans.EgoResult;
 import com.soldier.ego.beans.PageResult;
 import com.soldier.ego.rpc.pojo.TbItem;
+import com.soldier.ego.rpc.pojo.TbItemDesc;
 
 import java.util.List;
 
@@ -32,4 +33,11 @@ public interface ItemService {
      * @param itemIds  需要删除的商品信息的id集合
      */
     public EgoResult deleteItem(List<Long> itemIds);
+
+    /**
+     * 保存商品信息
+     * @param item  商品基本信息
+     * @param itemDesc  商品描述信息（富文本编辑器内容）
+     */
+    public EgoResult saveItem(TbItem item, TbItemDesc itemDesc);
 }

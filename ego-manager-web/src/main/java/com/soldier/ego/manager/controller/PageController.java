@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * @ProjectName: ego
- * @author: soldier
- * @Email: 583403411@qq.com
- * @create 19-8-21 上午10:01
- * @Describe: 页面跳转的controller
+ * @ProjectName:ego
+ * @author:soldier
+ * @Email:583403411@qq.com
+ * @create:19-8-21上午10:01
+ * @Describe:页面跳转的controller
  **/
 @Controller
 public class PageController {

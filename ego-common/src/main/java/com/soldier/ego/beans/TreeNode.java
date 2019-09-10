@@ -1,11 +1,11 @@
 package com.soldier.ego.beans;
 
 /**
- * @ProjectName: ego
- * @author: soldier
- * @Email: 583403411@qq.com
- * @create 19-9-4 下午4:07
- * @Describe: 封装tree控件需要的数据模型--用于商品类目
+ * @ProjectName:ego
+ * @author:soldier
+ * @Email:583403411@qq.com
+ * @create:19-9-4下午4:07
+ * @Describe:封装tree控件需要的数据模型--用于商品类目
  **/
 public class TreeNode {
 

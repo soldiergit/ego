@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * @ProjectName: ego
- * @author: soldier
- * @Email: 583403411@qq.com
- * @create 19-9-9 下午4:26
- * @Describe: 商品描述信息接口
+ * @ProjectName:ego
+ * @author:soldier
+ * @Email:583403411@qq.com
+ * @create:19-9-9下午4:26
+ * @Describe:商品描述信息接口
  **/
 @Service
 public class ItemDescServiceImpl implements ItemDescService {
@@ -21,7 +21,7 @@ public class ItemDescServiceImpl implements ItemDescService {
     private TbItemDescMapper tbItemDescMapper;
 
     @Override
-    public TbItemDesc getItemDesc(Long itemId) {
+    public TbItemDesc getItemDescService(Long itemId) {
         return tbItemDescMapper.selectByPrimaryKey(itemId);
     }
 }

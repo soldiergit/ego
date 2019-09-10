@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * @ProjectName: ego
- * @author: soldier
- * @Email: 583403411@qq.com
- * @create 19-8-21 下午4:14
- * @Describe: 商品信息
+ * @ProjectName:ego
+ * @author:soldier
+ * @Email:583403411@qq.com
+ * @create:19-8-21下午4:14
+ * @Describe:商品信息
  **/
 @Controller
 public class ItemController {

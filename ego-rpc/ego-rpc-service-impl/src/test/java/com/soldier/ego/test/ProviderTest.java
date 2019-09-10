@@ -5,11 +5,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.io.IOException;
 
 /**
- * @ProjectName: ego
- * @author: soldier
- * @Email: 583403411@qq.com
- * @create 19-8-21 上午11:55
- * @Describe: 发布 RPC 服务
+ * @ProjectName:ego
+ * @author:soldier
+ * @Email:583403411@qq.com
+ * @create:19-8-21上午11:55
+ * @Describe:发布 RPC 服务
  **/
 public class ProviderTest {
 

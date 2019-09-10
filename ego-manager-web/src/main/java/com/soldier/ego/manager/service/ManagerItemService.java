@@ -8,11 +8,11 @@ import com.soldier.ego.rpc.pojo.TbItemDesc;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
- * @ProjectName: ego
- * @author: soldier
- * @Email: 583403411@qq.com
- * @create 19-8-21 下午4:38
- * @Describe: 商品信息
+ * @ProjectName:ego
+ * @author:soldier
+ * @Email:583403411@qq.com
+ * @create:19-8-21下午4:38
+ * @Describe:商品信息
  **/
 public interface ManagerItemService {
 

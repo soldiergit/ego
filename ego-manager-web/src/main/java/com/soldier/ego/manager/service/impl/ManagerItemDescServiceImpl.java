@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * @ProjectName: ego
- * @author: soldier
- * @Email: 583403411@qq.com
- * @create 19-9-9 下午4:32
- * @Describe: 商品描述
+ * @ProjectName:ego
+ * @author:soldier
+ * @Email:583403411@qq.com
+ * @create:19-9-9下午4:32
+ * @Describe:商品描述
  **/
 @Service
 public class ManagerItemDescServiceImpl implements ManagerItemDescService {
@@ -25,7 +25,7 @@ public class ManagerItemDescServiceImpl implements ManagerItemDescService {
     public EgoResult getItemDesc(Long itemId) {
 
         //调用远程服务
-        TbItemDesc itemDesc = itemDescServiceProxy.getItemDesc(itemId);
+        TbItemDesc itemDesc = itemDescServiceProxy.getItemDescService(itemId);
 
         if (itemDesc != null) {
             return new EgoResult(itemDesc);

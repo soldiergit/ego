@@ -5,11 +5,11 @@ import com.soldier.ego.beans.TreeNode;
 import java.util.List;
 
 /**
- * @ProjectName: ego
- * @author: soldier
- * @Email: 583403411@qq.com
- * @create 19-9-4 下午4:11
- * @Describe: 商品类目
+ * @ProjectName:ego
+ * @author:soldier
+ * @Email:583403411@qq.com
+ * @create:19-9-4下午4:11
+ * @Describe:商品类目
  **/
 public interface ManagerItemCatService {
 

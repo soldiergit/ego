@@ -3,11 +3,11 @@ package com.soldier.ego.beans;
 import java.util.Random;
 
 /**
- * @ProjectName: ego
- * @author: soldier
- * @Email: 583403411@qq.com
- * @create 19-9-5 下午6:50
- * @Describe: 各种id生成策略
+ * @ProjectName:ego
+ * @author:soldier
+ * @Email:583403411@qq.com
+ * @create19-9-5下午6:50
+ * @Describe:各种id生成策略
  **/
 public class IDUtils {
 

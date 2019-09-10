@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @ProjectName: ego
- * @author: soldier
- * @Email: 583403411@qq.com
- * @create 19-9-4 下午3:59
- * @Describe: 商品类目接口
+ * @ProjectName:ego
+ * @author:soldier
+ * @Email:583403411@qq.com
+ * @create:19-9-4下午3:59
+ * @Describe:商品类目接口
  **/
 @Service
 public class ItemCatServiceImpl implements ItemCatService {

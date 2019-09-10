@@ -1,11 +1,11 @@
 package com.soldier.ego.beans;
 
 /**
- * @ProjectName: ego
- * @author: soldier
- * @Email: 583403411@qq.com
- * @create 19-9-5 下午6:43
- * @Describe: 封装上传图片之后的返回结果
+ * @ProjectName:ego
+ * @author:soldier
+ * @Email:583403411@qq.com
+ * @create19-9-5下午6:43
+ * @Describe:封装上传图片之后的返回结果
  **/
 public class PictureResult {
 

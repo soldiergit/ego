@@ -7,11 +7,11 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 
 /**
- * @ProjectName: ego
- * @author: soldier
- * @Email: 583403411@qq.com
- * @create 19-9-5 下午4:48
- * @Describe: ftp 工具类
+ * @ProjectName:ego
+ * @author:soldier
+ * @Email:583403411@qq.com
+ * @create19-9-5下午4:48
+ * @Describe:ftp工具类
  **/
 public class FtpUtils {
 

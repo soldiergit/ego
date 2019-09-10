@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @ProjectName: ego
- * @author: soldier
- * @Email: 583403411@qq.com
- * @create 19-9-4 下午4:13
- * @Describe: 商品类目
+ * @ProjectName:ego
+ * @author:soldier
+ * @Email:583403411@qq.com
+ * @create:19-9-4下午4:13
+ * @Describe:商品类目
  **/
 @Service
 public class ManagerItemCatServiceImpl implements ManagerItemCatService {

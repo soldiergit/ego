@@ -4,11 +4,11 @@ import com.soldier.ego.rpc.pojo.TbItem;
 import com.soldier.ego.rpc.pojo.TbItemDesc;
 
 /**
- * @ProjectName: ego
- * @author: soldier
- * @Email: 583403411@qq.com
- * @create 19-9-9 下午4:23
- * @Describe: 商品描述信息接口
+ * @ProjectName:ego
+ * @author:soldier
+ * @Email:583403411@qq.com
+ * @create:19-9-9下午4:23
+ * @Describe:商品描述信息接口
  **/
 public interface ItemDescService {
 
@@ -17,5 +17,5 @@ public interface ItemDescService {
      * @param itemId
      * @return
      */
-    public TbItemDesc getItemDesc(Long itemId);
+    public TbItemDesc getItemDescService(Long itemId);
 }

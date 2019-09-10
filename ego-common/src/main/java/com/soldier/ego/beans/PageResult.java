@@ -4,12 +4,11 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @ProjectName: ego
- * @author: soldier
- * @Email: 583403411@qq.com
- * @create 19-8-21 上午11:35
- * @Describe: 封装datagrid控件需要的模型
- *                  需要实现序列化接口
+ * @ProjectName:ego
+ * @author:soldier
+ * @Email:583403411@qq.com
+ * @create19-8-21上午11:35
+ * @Describe:封装datagrid控件需要的模型需要实现序列化接口
  **/
 public class PageResult<T> implements Serializable {
 

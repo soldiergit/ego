@@ -16,11 +16,11 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @ProjectName: ego
- * @author: soldier
- * @Email: 583403411@qq.com
- * @create 19-8-21 下午4:39
- * @Describe: 商品信息
+ * @ProjectName:ego
+ * @author:soldier
+ * @Email:583403411@qq.com
+ * @create:19-8-21下午4:39
+ * @Describe:商品信息
  **/
 @Service
 public class ManagerItemServiceImpl implements ManagerItemService {
@@ -47,7 +47,7 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 
     @Override
     public PageResult<TbItem> selectItemList(Integer page, Integer rows) {
-        return itemServiceProxy.selectItemList(page, rows);
+        return itemServiceProxy.selectItemListService(page, rows);
     }
 
     @Override
@@ -55,7 +55,7 @@ public class ManagerItemServiceImpl implements ManagerItemService {
         //将ids数组转为List集合
         List<Long> itemIds = Arrays.asList(ids);
         //调用远程服务
-        return itemServiceProxy.updateItemStatus(itemIds, true);
+        return itemServiceProxy.updateItemStatusService(itemIds, true);
     }
 
     @Override
@@ -63,7 +63,7 @@ public class ManagerItemServiceImpl implements ManagerItemService {
         //将ids数组转为List集合
         List<Long> itemIds = Arrays.asList(ids);
         //调用远程服务
-        return itemServiceProxy.updateItemStatus(itemIds, false);
+        return itemServiceProxy.updateItemStatusService(itemIds, false);
     }
 
     @Override
@@ -71,7 +71,7 @@ public class ManagerItemServiceImpl implements ManagerItemService {
         //将ids数组转为List集合
         List<Long> itemIds = Arrays.asList(ids);
         //调用远程服务
-        return itemServiceProxy.deleteItem(itemIds);
+        return itemServiceProxy.deleteItemService(itemIds);
     }
 
     @Override
@@ -138,7 +138,7 @@ public class ManagerItemServiceImpl implements ManagerItemService {
         itemDesc.setCreated(date);
         itemDesc.setUpdated(date);
 
-        return itemServiceProxy.saveItem(item, itemDesc);
+        return itemServiceProxy.saveItemService(item, itemDesc);
     }
 
     @Override
@@ -157,6 +157,6 @@ public class ManagerItemServiceImpl implements ManagerItemService {
         itemDesc.setCreated(date);
         itemDesc.setUpdated(date);
 
-        return itemServiceProxy.updateItem(item, itemDesc);
+        return itemServiceProxy.updateItemService(item, itemDesc);
     }
 }

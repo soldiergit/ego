@@ -3,11 +3,11 @@ package com.soldier.ego.beans;
 import java.io.Serializable;
 
 /**
- * @ProjectName: ego
- * @author: soldier
- * @Email: 583403411@qq.com
- * @create 19-8-24 上午8:00
- * @Describe: 封装客户端发送的商品上架、下架、删除请求后，需要响应的数据模型
+ * @ProjectName:ego
+ * @author:soldier
+ * @Email:583403411@qq.com
+ * @create19-8-24上午8:00
+ * @Describe:封装客户端发送的商品上架、下架、删除请求后，需要响应的数据模型
  **/
 public class EgoResult implements Serializable {
 

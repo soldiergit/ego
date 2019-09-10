@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
- * @ProjectName: ego
- * @author: soldier
- * @Email: 583403411@qq.com
- * @create 19-9-5 下午7:12
- * @Describe: 商品图片
+ * @ProjectName:ego
+ * @author:soldier
+ * @Email:583403411@qq.com
+ * @create:19-9-5下午7:12
+ * @Describe:商品图片
  **/
 @Controller
 public class ItemImageController {

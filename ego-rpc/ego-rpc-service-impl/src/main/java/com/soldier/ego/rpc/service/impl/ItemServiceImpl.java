@@ -18,11 +18,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @ProjectName: ego
- * @author: soldier
- * @Email: 583403411@qq.com
- * @create 19-8-21 上午11:43
- * @Describe: 商品信息接口
+ * @ProjectName:ego
+ * @author:soldier
+ * @Email:583403411@qq.com
+ * @create:19-8-21上午11:43
+ * @Describe:商品信息接口
  **/
 @Service
 public class ItemServiceImpl implements ItemService {
@@ -34,7 +34,7 @@ public class ItemServiceImpl implements ItemService {
     private TbItemDescMapper tbItemDescMapper;
 
     @Override
-    public PageResult<TbItem> selectItemList(Integer page, Integer rows) {
+    public PageResult<TbItem> selectItemListService(Integer page, Integer rows) {
 
         //执行分页操作
         Page ps = PageHelper.startPage(page, rows);
@@ -52,7 +52,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public EgoResult updateItemStatus(List<Long> itemIds, Boolean flag) {
+    public EgoResult updateItemStatusService(List<Long> itemIds, Boolean flag) {
 
         //创建tbItem对象
         TbItem item = new TbItem();
@@ -77,7 +77,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public EgoResult deleteItem(List<Long> itemIds) {
+    public EgoResult deleteItemService(List<Long> itemIds) {
 
         //动态产生where条件
         TbItemExample example = new TbItemExample();
@@ -94,7 +94,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public EgoResult saveItem(TbItem item, TbItemDesc itemDesc) {
+    public EgoResult saveItemService(TbItem item, TbItemDesc itemDesc) {
 
         tbItemMapper.insert(item);
         tbItemDescMapper.insert(itemDesc);
@@ -102,7 +102,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public EgoResult updateItem(TbItem item, TbItemDesc itemDesc) {
+    public EgoResult updateItemService(TbItem item, TbItemDesc itemDesc) {
 
         /**
          * 更新商品基本信息

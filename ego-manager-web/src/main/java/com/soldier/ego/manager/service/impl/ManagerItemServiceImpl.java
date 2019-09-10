@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Date;
@@ -140,5 +139,24 @@ public class ManagerItemServiceImpl implements ManagerItemService {
         itemDesc.setUpdated(date);
 
         return itemServiceProxy.saveItem(item, itemDesc);
+    }
+
+    @Override
+    public EgoResult updateItem(TbItem item, String desc) {
+
+        //当前时间
+        Date date = new Date();
+
+        //给item对象封装数据
+        item.setUpdated(date);
+
+        //给itemDesc对象封装数据
+        TbItemDesc itemDesc = new TbItemDesc();
+        itemDesc.setItemDesc(desc);
+        itemDesc.setItemId(item.getId());
+        itemDesc.setCreated(date);
+        itemDesc.setUpdated(date);
+
+        return itemServiceProxy.updateItem(item, itemDesc);
     }
 }

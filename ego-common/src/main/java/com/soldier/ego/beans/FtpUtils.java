@@ -1,12 +1,10 @@
 package com.soldier.ego.beans;
 
-import org.apache.commons.net.PrintCommandListener;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.io.PrintWriter;
 
 /**
  * @ProjectName: ego
@@ -19,7 +17,7 @@ public class FtpUtils {
 
     /**
      * 完成图片的上传，通过ftp将图片上传到图片服务器
-     * 图片服务器：172.18.25.172，域名：image.taobao.com
+     * 图片服务器：172.18.25.172，域名：image.taotao.com
      * 可通过cat /etc/hosts命令查看
      */
     public static void main(String[] args) {
@@ -62,8 +60,8 @@ public class FtpUtils {
             client.connect(hostname, port);
             //登陆ftp服务器
             boolean login = client.login(username, password);
-            client.addProtocolCommandListener(new PrintCommandListener(new PrintWriter(System.out)));
-            System.out.println(login?"登陆成功":"登陆失败");
+//            client.addProtocolCommandListener(new PrintCommandListener(new PrintWriter(System.out)));
+//            System.out.println(login?"登陆成功":"登陆失败");
             //设置上传的文件的类型
             client.setFileType(FTP.BINARY_FILE_TYPE);
             //切换工作目录，文件上传后保存到那个目录

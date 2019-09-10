@@ -4,6 +4,7 @@ import com.soldier.ego.beans.EgoResult;
 import com.soldier.ego.beans.PageResult;
 import com.soldier.ego.beans.PictureResult;
 import com.soldier.ego.rpc.pojo.TbItem;
+import com.soldier.ego.rpc.pojo.TbItemDesc;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -41,7 +42,12 @@ public interface ManagerItemService {
     public PictureResult uploadItemPic(MultipartFile file);
 
     /**
-     *
+     * 保存商品信息
      */
     public EgoResult saveItem(TbItem item, String desc);
+
+    /**
+     * 更新商品信息
+     */
+    public EgoResult updateItem(TbItem item, String desc);
 }

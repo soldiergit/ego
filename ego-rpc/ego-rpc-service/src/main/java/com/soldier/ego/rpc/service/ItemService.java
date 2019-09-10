@@ -40,4 +40,11 @@ public interface ItemService {
      * @param itemDesc  商品描述信息（富文本编辑器内容）
      */
     public EgoResult saveItem(TbItem item, TbItemDesc itemDesc);
+
+    /**
+     * 更新商品信息
+     * @param item  商品基本信息
+     * @param itemDesc  商品描述信息（富文本编辑器内容）
+     */
+    public EgoResult updateItem(TbItem item, TbItemDesc itemDesc);
 }

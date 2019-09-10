@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.awt.*;
-
 /**
  * @ProjectName: ego
  * @author: soldier
@@ -71,5 +69,14 @@ public class ItemController {
     @ResponseBody
     public EgoResult saveItem(TbItem item, String desc) {
         return managerItemService.saveItem(item, desc);
+    }
+
+    /**
+     * 商品信息的更新请求
+     */
+    @RequestMapping(value = "item/update", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
+    @ResponseBody
+    public EgoResult updateItem(TbItem item, String desc) {
+        return managerItemService.updateItem(item, desc);
     }
 }

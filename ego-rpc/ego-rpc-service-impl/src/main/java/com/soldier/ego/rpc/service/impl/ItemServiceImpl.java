@@ -8,6 +8,7 @@ import com.soldier.ego.rpc.mapper.TbItemDescMapper;
 import com.soldier.ego.rpc.mapper.TbItemMapper;
 import com.soldier.ego.rpc.pojo.TbItem;
 import com.soldier.ego.rpc.pojo.TbItemDesc;
+import com.soldier.ego.rpc.pojo.TbItemDescExample;
 import com.soldier.ego.rpc.pojo.TbItemExample;
 import com.soldier.ego.rpc.pojo.TbItemExample.Criteria;
 import com.soldier.ego.rpc.service.ItemService;
@@ -97,6 +98,37 @@ public class ItemServiceImpl implements ItemService {
 
         tbItemMapper.insert(item);
         tbItemDescMapper.insert(itemDesc);
+        return EgoResult.ok();
+    }
+
+    @Override
+    public EgoResult updateItem(TbItem item, TbItemDesc itemDesc) {
+
+        /**
+         * 更新商品基本信息
+         *  updateByPrimaryKey          --更新表中的所有字段
+         *  updateByPrimaryKeySelective --如果对象中的某个特定属性是空的，不会去更新那一个列，比如说商品不一定有描述信息
+         */
+        tbItemMapper.updateByPrimaryKeySelective(item);
+
+        /**
+         * 判断该商品是否有描述信息
+         */
+        //查询某个商品的描述信息
+        TbItemDescExample example = new TbItemDescExample();
+        TbItemDescExample.Criteria criteria = example.createCriteria();
+        // where itemId = ?
+        criteria.andItemIdEqualTo(itemDesc.getItemId());
+        Integer rows = tbItemDescMapper.countByExample(example);
+        //更新商品基本信息
+        if (rows == 0) {
+            this.tbItemDescMapper.insert(itemDesc);
+        } else {
+            //如果是更新，create字段不会改变；因为updateByPrimaryKeySelective不会更新对象中为空的字段
+            itemDesc.setCreated(null);
+            this.tbItemDescMapper.updateByPrimaryKeySelective(itemDesc);
+        }
+
         return EgoResult.ok();
     }
 }

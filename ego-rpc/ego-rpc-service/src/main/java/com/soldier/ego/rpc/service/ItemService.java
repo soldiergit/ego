@@ -4,6 +4,8 @@ import com.soldier.ego.beans.EgoResult;
 import com.soldier.ego.beans.PageResult;
 import com.soldier.ego.rpc.pojo.TbItem;
 import com.soldier.ego.rpc.pojo.TbItemDesc;
+import com.soldier.ego.rpc.pojo.TbItemParam;
+import com.soldier.ego.rpc.pojo.TbItemParamItem;
 
 import java.util.List;
 
@@ -23,8 +25,8 @@ public interface ItemService {
 
     /**
      * 完成商品上下架状态的修改
-     * @param itemIds 商品的idj集合
-     * @param flag true:上架,false:下架
+     * @param itemIds   商品的idj集合
+     * @param flag      true:上架,false:下架
      */
     public EgoResult updateItemStatusService(List<Long> itemIds, Boolean flag);
 
@@ -36,15 +38,16 @@ public interface ItemService {
 
     /**
      * 保存商品信息
-     * @param item  商品基本信息
+     * @param item      商品基本信息
      * @param itemDesc  商品描述信息（富文本编辑器内容）
+     * @param itemParamItem 商品规格参数信息
      */
-    public EgoResult saveItemService(TbItem item, TbItemDesc itemDesc);
+    public EgoResult saveItemService(TbItem item, TbItemDesc itemDesc, TbItemParamItem itemParamItem);
 
     /**
      * 更新商品信息
-     * @param item  商品基本信息
+     * @param item      商品基本信息
      * @param itemDesc  商品描述信息（富文本编辑器内容）
      */
-    public EgoResult updateItemService(TbItem item, TbItemDesc itemDesc);
+    public EgoResult updateItemService(TbItem item, TbItemDesc itemDesc, TbItemParamItem itemParamItem);
 }

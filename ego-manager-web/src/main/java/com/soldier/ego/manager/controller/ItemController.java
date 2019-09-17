@@ -67,8 +67,8 @@ public class ItemController {
      */
     @RequestMapping(value = "item/save", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody
-    public EgoResult saveItem(TbItem item, String desc) {
-        return managerItemService.saveItem(item, desc);
+    public EgoResult saveItem(TbItem item, String desc, String itemParams) {
+        return managerItemService.saveItem(item, desc, itemParams);
     }
 
     /**
@@ -76,7 +76,7 @@ public class ItemController {
      */
     @RequestMapping(value = "item/update", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody
-    public EgoResult updateItem(TbItem item, String desc) {
-        return managerItemService.updateItem(item, desc);
+    public EgoResult updateItem(TbItem item, String desc, String itemParams) {
+        return managerItemService.updateItem(item, desc, itemParams);
     }
 }

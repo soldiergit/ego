@@ -4,6 +4,8 @@ import com.soldier.ego.beans.*;
 import com.soldier.ego.manager.service.ManagerItemService;
 import com.soldier.ego.rpc.pojo.TbItem;
 import com.soldier.ego.rpc.pojo.TbItemDesc;
+import com.soldier.ego.rpc.pojo.TbItemParam;
+import com.soldier.ego.rpc.pojo.TbItemParamItem;
 import com.soldier.ego.rpc.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -119,7 +121,7 @@ public class ManagerItemServiceImpl implements ManagerItemService {
     }
 
     @Override
-    public EgoResult saveItem(TbItem item, String desc) {
+    public EgoResult saveItem(TbItem item, String desc, String itemParams) {
 
         //当前时间
         Date date = new Date();
@@ -138,11 +140,18 @@ public class ManagerItemServiceImpl implements ManagerItemService {
         itemDesc.setCreated(date);
         itemDesc.setUpdated(date);
 
-        return itemServiceProxy.saveItemService(item, itemDesc);
+        //给itemParam对象封装数据
+        TbItemParamItem itemParamItem = new TbItemParamItem();
+        itemParamItem.setParamData(itemParams);
+        itemParamItem.setId(itemId);
+        itemParamItem.setCreated(date);
+        itemParamItem.setUpdated(date);
+
+        return itemServiceProxy.saveItemService(item, itemDesc, itemParamItem);
     }
 
     @Override
-    public EgoResult updateItem(TbItem item, String desc) {
+    public EgoResult updateItem(TbItem item, String desc, String itemParams) {
 
         //当前时间
         Date date = new Date();
@@ -157,6 +166,14 @@ public class ManagerItemServiceImpl implements ManagerItemService {
         itemDesc.setCreated(date);
         itemDesc.setUpdated(date);
 
-        return itemServiceProxy.updateItemService(item, itemDesc);
+        //给itemParamItem对象封装数据
+        TbItemParamItem itemParamItem = new TbItemParamItem();
+        itemParamItem.setParamData(itemParams);
+        itemParamItem.setItemId(item.getId());
+//        itemParamItem.setCreated(date);
+        itemParamItem.setUpdated(date);
+
+        //调用远程服务
+        return itemServiceProxy.updateItemService(item, itemDesc, itemParamItem);
     }
 }

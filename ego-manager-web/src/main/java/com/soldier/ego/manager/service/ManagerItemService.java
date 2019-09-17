@@ -43,11 +43,14 @@ public interface ManagerItemService {
 
     /**
      * 保存商品信息
+     * @param item      商品对象
+     * @param desc      商品描述
+     * @param itemParams 商品规格参数信息（json串）
      */
-    public EgoResult saveItem(TbItem item, String desc);
+    public EgoResult saveItem(TbItem item, String desc, String itemParams);
 
     /**
      * 更新商品信息
      */
-    public EgoResult updateItem(TbItem item, String desc);
+    public EgoResult updateItem(TbItem item, String desc, String itemParams);
 }

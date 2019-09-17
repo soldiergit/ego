@@ -17,4 +17,5 @@
     <dubbo:reference interface="com.soldier.ego.rpc.service.ItemCatService" id="itemCatServiceProxy"></dubbo:reference>
     <dubbo:reference interface="com.soldier.ego.rpc.service.ItemDescService" id="itemDescServiceProxy"></dubbo:reference>
     <dubbo:reference interface="com.soldier.ego.rpc.service.ItemParamService" id="itemParamServiceProxy"></dubbo:reference>
+    <dubbo:reference interface="com.soldier.ego.rpc.service.ItemParamItemService" id="itemParamItemServiceProxy"></dubbo:reference>
 </beans>

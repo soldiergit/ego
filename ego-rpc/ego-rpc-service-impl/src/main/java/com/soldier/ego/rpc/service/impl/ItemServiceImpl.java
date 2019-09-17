@@ -6,10 +6,9 @@ import com.soldier.ego.beans.EgoResult;
 import com.soldier.ego.beans.PageResult;
 import com.soldier.ego.rpc.mapper.TbItemDescMapper;
 import com.soldier.ego.rpc.mapper.TbItemMapper;
-import com.soldier.ego.rpc.pojo.TbItem;
-import com.soldier.ego.rpc.pojo.TbItemDesc;
-import com.soldier.ego.rpc.pojo.TbItemDescExample;
-import com.soldier.ego.rpc.pojo.TbItemExample;
+import com.soldier.ego.rpc.mapper.TbItemParamItemMapper;
+import com.soldier.ego.rpc.mapper.TbItemParamMapper;
+import com.soldier.ego.rpc.pojo.*;
 import com.soldier.ego.rpc.pojo.TbItemExample.Criteria;
 import com.soldier.ego.rpc.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +31,8 @@ public class ItemServiceImpl implements ItemService {
     private TbItemMapper tbItemMapper;
     @Autowired
     private TbItemDescMapper tbItemDescMapper;
+    @Autowired
+    private TbItemParamItemMapper tbItemParamItemMapper;
 
     @Override
     public PageResult<TbItem> selectItemListService(Integer page, Integer rows) {
@@ -94,15 +95,16 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public EgoResult saveItemService(TbItem item, TbItemDesc itemDesc) {
+    public EgoResult saveItemService(TbItem item, TbItemDesc itemDesc, TbItemParamItem itemParamItem) {
 
         tbItemMapper.insert(item);
         tbItemDescMapper.insert(itemDesc);
+        tbItemParamItemMapper.insert(itemParamItem);
         return EgoResult.ok();
     }
 
     @Override
-    public EgoResult updateItemService(TbItem item, TbItemDesc itemDesc) {
+    public EgoResult updateItemService(TbItem item, TbItemDesc itemDesc, TbItemParamItem itemParamItem) {
 
         /**
          * 更新商品基本信息
@@ -115,11 +117,12 @@ public class ItemServiceImpl implements ItemService {
          * 判断该商品是否有描述信息
          */
         //查询某个商品的描述信息
-        TbItemDescExample example = new TbItemDescExample();
-        TbItemDescExample.Criteria criteria = example.createCriteria();
+        TbItemDescExample itemDescExample = new TbItemDescExample();
+        TbItemDescExample.Criteria itemDescCriteria = itemDescExample.createCriteria();
         // where itemId = ?
-        criteria.andItemIdEqualTo(itemDesc.getItemId());
-        Integer rows = tbItemDescMapper.countByExample(example);
+        itemDescCriteria.andItemIdEqualTo(itemDesc.getItemId());
+        Integer rows = tbItemDescMapper.countByExample(itemDescExample);
+
         //更新商品基本信息
         if (rows == 0) {
             this.tbItemDescMapper.insert(itemDesc);
@@ -128,6 +131,13 @@ public class ItemServiceImpl implements ItemService {
             itemDesc.setCreated(null);
             this.tbItemDescMapper.updateByPrimaryKeySelective(itemDesc);
         }
+
+        //更新商品规格参数信息
+        TbItemParamItemExample itemParamItemExample = new TbItemParamItemExample();
+        TbItemParamItemExample.Criteria itemParamItemCriteria = itemParamItemExample.createCriteria();
+        // where itemId = ?
+        itemParamItemCriteria.andItemIdEqualTo(itemParamItem.getItemId());
+        tbItemParamItemMapper.updateByExampleSelective(itemParamItem, itemParamItemExample);
 
         return EgoResult.ok();
     }

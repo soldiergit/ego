@@ -71,7 +71,7 @@ public class FtpUtils {
                 }
             }
 
-            local = new FileInputStream("/home/soldier/图片/01.jpg");
+//            local = new FileInputStream("/home/soldier/图片/01.jpg");
             //实现文件上传
             client.storeFile(remote, local);
 

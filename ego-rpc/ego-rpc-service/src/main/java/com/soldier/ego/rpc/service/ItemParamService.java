@@ -1,7 +1,10 @@
 package com.soldier.ego.rpc.service;
 
+import com.soldier.ego.beans.EgoResult;
 import com.soldier.ego.beans.PageResult;
 import com.soldier.ego.rpc.pojo.TbItemParam;
+
+import java.util.List;
 
 /**
  * @ProjectName:ego
@@ -39,5 +42,22 @@ public interface ItemParamService {
     /**
      * 商品规格参数模板的分页显示
      */
-    public PageResult<TbItemParam> loadTbItemParamListService(Integer page, Integer rows);
+    public PageResult<TbItemParam> loadItemParamListService(Integer page, Integer rows);
+
+    /**
+     * 根据商品类目的id，获得该商品类目的规格参数模板对象
+     * @param cid 商品类目(itemCat)的id   1：1
+     */
+    public TbItemParam loadItemParamByCidService(Long cid);
+
+    /**
+     * 新增商品规格参数模板
+     */
+    public EgoResult saveItemParamService(TbItemParam itemParam);
+
+    /**
+     * 批量删除商品规格参数模板
+     * @param ids 商品规格参数模板id集合
+     */
+    public EgoResult deleteItemParamService(List<Long> ids);
 }

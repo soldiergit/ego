@@ -38,4 +38,12 @@ public class ItemCatServiceImpl implements ItemCatService {
 
         return itemCatList;
     }
+
+    @Override
+    public TbItemCat loadItemCatByIdService(Long id) {
+
+        TbItemCat itemCat = tbItemCatMapper.selectByPrimaryKey(id);
+
+        return itemCat;
+    }
 }

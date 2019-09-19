@@ -14,7 +14,6 @@ public interface ManagerItemDescService {
     /**
      * 获得需要回显的商品描述信息
      * @param itemId
-     * @return
      */
     public EgoResult getItemDesc(Long itemId);
 }

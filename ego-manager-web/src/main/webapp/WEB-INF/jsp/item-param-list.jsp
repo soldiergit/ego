@@ -13,7 +13,8 @@
         </tr>
     </thead>
 </table>
-<div id="itemEditWindow" class="easyui-window" title="编辑商品" data-options="modal:true,closed:true,iconCls:'icon-save',href:'/item-edit'" style="width:80%;height:80%;padding:10px;">
+<%--href后的路径表示打开的jsp页面--%>
+<div id="itemParamEditWindow" class="easyui-window" title="编辑商品规格参数" data-options="modal:true,closed:true,iconCls:'icon-save',href:'item-param-edit'" style="width:80%;height:80%;padding:10px;">
 </div>
 <script>
 
@@ -49,7 +50,33 @@
         text:'编辑',
         iconCls:'icon-edit',
         handler:function(){
-        	$.messager.alert('提示','该功能未实现!');
+            // $.messager.alert('提示','该功能未实现!');
+            var ids = getSelectionsIds();
+            if(ids.length == 0){
+                $.messager.alert('提示','必须选择一个商品规格参数才能编辑!');
+                return ;
+            }
+            if(ids.indexOf(',') > 0){
+                $.messager.alert('提示','只能选择一个商品规格参数!');
+                return ;
+            }
+            
+            $("#itemParamEditWindow").window({
+                onLoad: function () {
+                    //回显数据
+                    var data = $("#itemParamList").datagrid("getSelections")[0];
+                    data.priceView = EGO.formatPrice(data.price);
+                    $("#itemParamEditForm").form("load",data);
+
+                    // 加载商品类目
+                    $.getJSON('/item/cat/query/'+data.itemCatId,function (_data) {
+                        if (_data.status == 200) {
+                            console.log(_data.data)
+                            // itemParamEditEditor.html(_data.data.name);
+                        }
+                    })
+                }
+            }).window("open");
         }
     },{
         text:'删除',

@@ -17,7 +17,7 @@
     </tr>
     </thead>
 </table>
-                                                                                                        <%--href后的路径表示打开的jsp页面--%>
+<%--href后的路径表示打开的jsp页面--%>
 <div id="itemEditWindow" class="easyui-window" title="编辑商品" data-options="modal:true,closed:true,iconCls:'icon-save',href:'item-edit'" style="width:80%;height:80%;padding:10px;">
 </div>
 <script>
@@ -58,7 +58,7 @@
                     //回显数据
                     var data = $("#itemList").datagrid("getSelections")[0];
                     data.priceView = EGO.formatPrice(data.price);
-                    $("#itemeEditForm").form("load",data);
+                    $("#itemEditForm").form("load",data);
 
                     // 加载商品描述
                     $.getJSON('/query/item/desc/'+data.id,function(_data){
@@ -71,9 +71,9 @@
                     //加载商品规格
                     $.getJSON('/param/item/query/'+data.id,function(_data){
                         if(_data && _data.status == 200 && _data.data && _data.data.paramData){
-                            $("#itemeEditForm .params").show();
-                            $("#itemeEditForm [name=itemParams]").val(_data.data.paramData);
-                            $("#itemeEditForm [name=itemParamId]").val(_data.data.id);
+                            $("#itemEditForm .params").show();
+                            $("#itemEditForm [name=itemParams]").val(_data.data.paramData);
+                            $("#itemEditForm [name=itemParamId]").val(_data.data.id);
 
                             //回显商品规格
                             var paramData = JSON.parse(_data.data.paramData);
@@ -92,7 +92,7 @@
                                 html+="</li></table>";
                             }
                             html+= "</ul>";
-                            $("#itemeEditForm .params td").eq(1).html(html);
+                            $("#itemEditForm .params td").eq(1).html(html);
                         }
                     });
 
@@ -100,7 +100,7 @@
                         "pics" : data.image,
                         "cid" : data.cid,
                         fun:function(node){
-                            EGO.changeItemParam(node, "itemeEditForm");
+                            EGO.changeItemParam(node, "itemEditForm");
                         }
                     });
                 }

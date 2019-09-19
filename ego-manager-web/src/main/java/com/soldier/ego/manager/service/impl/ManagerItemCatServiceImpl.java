@@ -1,5 +1,6 @@
 package com.soldier.ego.manager.service.impl;
 
+import com.soldier.ego.beans.EgoResult;
 import com.soldier.ego.beans.TreeNode;
 import com.soldier.ego.manager.service.ManagerItemCatService;
 import com.soldier.ego.rpc.pojo.TbItemCat;
@@ -43,5 +44,22 @@ public class ManagerItemCatServiceImpl implements ManagerItemCatService {
         }
 
         return nodeList;
+    }
+
+    @Override
+    public EgoResult loadItemCatById(Long id) {
+
+        EgoResult result = null;
+        try {
+            //调用远程服务代理对象
+            TbItemCat itemCat = itemCatServiceProxy.loadItemCatByIdService(id);
+            result = new EgoResult(itemCat);
+//            result.setStatus(200);
+//            result.setData(itemCat);
+        } catch (Exception e) {
+            System.out.println("##############加载商品类目失败################");
+            e.printStackTrace();
+        }
+        return result;
     }
 }

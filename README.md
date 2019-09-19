@@ -55,7 +55,7 @@
 13. CMS
 14. 购物车
 15. 系统管理 网络管理
-16.活动管理 商品推荐
+16. 活动管理 商品推荐
 
 ##### 2.3 易购商城技术架构
 
@@ -122,7 +122,7 @@
 5. [INFO] ego-rpc-mapper                                                     [jar]
 6. [INFO] ego-rpc-service                                                    [jar]
 7. [INFO] ego-rpc-service-impl                                               [jar]
-8. [INFO] ego-manager-web Maven Webapp                                    [war]
+8. [INFO] ego-manager-web Maven Webapp                                       [war]
 
 #### 运行项目
 1. 启动Zookeeper服务注册中心

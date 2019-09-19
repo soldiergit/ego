@@ -1,5 +1,6 @@
 package com.soldier.ego.manager.service;
 
+import com.soldier.ego.beans.EgoResult;
 import com.soldier.ego.beans.TreeNode;
 
 import java.util.List;
@@ -19,4 +20,10 @@ public interface ManagerItemCatService {
      * @return
      */
     public List<TreeNode> getItemCatList(Long id);
+
+    /**
+     * 根据id，查询商品类目
+     * @param id 商品类目id
+     */
+    public EgoResult loadItemCatById(Long id);
 }

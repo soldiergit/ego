@@ -19,4 +19,10 @@ public interface ItemCatService {
      * @return
      */
     public List<TbItemCat> getItemCatListByParentId(Long id);
+
+    /**
+     * 根据id，查询商品类目
+     * @param id 商品类目id
+     */
+    public TbItemCat loadItemCatByIdService(Long id);
 }

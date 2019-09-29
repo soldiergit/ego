@@ -7,7 +7,6 @@ import com.soldier.ego.beans.PageResult;
 import com.soldier.ego.rpc.mapper.TbItemDescMapper;
 import com.soldier.ego.rpc.mapper.TbItemMapper;
 import com.soldier.ego.rpc.mapper.TbItemParamItemMapper;
-import com.soldier.ego.rpc.mapper.TbItemParamMapper;
 import com.soldier.ego.rpc.pojo.*;
 import com.soldier.ego.rpc.pojo.TbItemExample.Criteria;
 import com.soldier.ego.rpc.service.ItemService;

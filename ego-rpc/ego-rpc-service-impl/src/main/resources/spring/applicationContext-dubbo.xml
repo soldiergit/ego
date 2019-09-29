@@ -22,5 +22,7 @@
 	 <dubbo:service interface="com.soldier.ego.rpc.service.ItemDescService" ref="itemDescServiceImpl"></dubbo:service>
 	 <dubbo:service interface="com.soldier.ego.rpc.service.ItemParamService" ref="itemParamServiceImpl"></dubbo:service><!-- timeout="3000"-->
 	 <dubbo:service interface="com.soldier.ego.rpc.service.ItemParamItemService" ref="itemParamItemServiceImpl"></dubbo:service>
+	 <dubbo:service interface="com.soldier.ego.rpc.service.ContentCategoryService" ref="contentCategoryServiceImpl"></dubbo:service>
+	 <dubbo:service interface="com.soldier.ego.rpc.service.ContentService" ref="contentServiceImpl"></dubbo:service>
 
 </beans>

@@ -50,10 +50,12 @@ public class ItemParamServiceImpl implements ItemParamService {
     @Override
     public TbItemParam loadItemParamByCidService(Long cid) {
 
+        //因为不是根据主键id查，所以要新建example对象
+        //动态产生where条件
         TbItemParamExample example = new TbItemParamExample();
-
-        //封装查询条件
         TbItemParamExample.Criteria criteria = example.createCriteria();
+
+        //where item_cat_id = ?
         criteria.andItemCatIdEqualTo(cid);
 
         //执行数据库查询操作
@@ -72,6 +74,7 @@ public class ItemParamServiceImpl implements ItemParamService {
             tbItemParamMapper.insert(itemParam);
             return EgoResult.ok();
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.println("##############新增商品规格参数模板失败################");
         }
 
@@ -82,6 +85,9 @@ public class ItemParamServiceImpl implements ItemParamService {
     public EgoResult deleteItemParamService(List<Long> ids) {
 
         try {
+
+            //因为是根据多个主键id查，所以要新建example对象
+            //动态产生where条件
             TbItemParamExample example = new TbItemParamExample();
             TbItemParamExample.Criteria criteria = example.createCriteria();
 
@@ -92,6 +98,7 @@ public class ItemParamServiceImpl implements ItemParamService {
             tbItemParamMapper.deleteByExample(example);
             return EgoResult.ok();
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.println("##############批量删除商品规格参数模板失败################");
         }
 

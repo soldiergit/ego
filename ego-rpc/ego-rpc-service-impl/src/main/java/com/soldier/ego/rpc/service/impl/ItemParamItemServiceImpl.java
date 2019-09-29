@@ -26,14 +26,15 @@ public class ItemParamItemServiceImpl implements ItemParamItemService {
     @Override
     public TbItemParamItem loadItemParamItemListService(Long itemId) {
 
+        //因为不是根据主键id查，所以要新建example对象
+        //动态产生where条件
         TbItemParamItemExample example = new TbItemParamItemExample();
-
-        //封装查询条件
         TbItemParamItemExample.Criteria criteria = example.createCriteria();
+
+        //where item_id = ?
         criteria.andItemIdEqualTo(itemId);
 
         List<TbItemParamItem> itemParamItemList = tbItemParamItemMapper.selectByExampleWithBLOBs(example);
-        System.out.println(itemParamItemList);
 
         if (itemParamItemList!=null && itemParamItemList.size()==1) return itemParamItemList.get(0);
         return null;

@@ -4,7 +4,6 @@ import com.soldier.ego.beans.*;
 import com.soldier.ego.manager.service.ManagerItemService;
 import com.soldier.ego.rpc.pojo.TbItem;
 import com.soldier.ego.rpc.pojo.TbItemDesc;
-import com.soldier.ego.rpc.pojo.TbItemParam;
 import com.soldier.ego.rpc.pojo.TbItemParamItem;
 import com.soldier.ego.rpc.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;

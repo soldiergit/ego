@@ -67,6 +67,7 @@ var contentListToolbar = [{
 		TT.createWindow({
 			url : "/content-edit",
 			onLoad : function(){
+				//回显数据
 				var data = $("#contentList").datagrid("getSelections")[0];
 				$("#contentEditForm").form("load",data);
 				

@@ -26,7 +26,7 @@ public class ItemCatServiceImpl implements ItemCatService {
     @Override
     public List<TbItemCat> getItemCatListByParentId(Long id) {
 
-        //因为不是根据主键id查，所以要参见example对象
+        //因为不是根据主键id查，所以要新建example对象
         //动态产生where条件
         TbItemCatExample example = new TbItemCatExample();
         TbItemCatExample.Criteria criteria = example.createCriteria();

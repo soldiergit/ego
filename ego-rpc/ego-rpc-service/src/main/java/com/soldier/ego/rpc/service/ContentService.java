@@ -37,4 +37,9 @@ public interface ContentService {
      * 修改网站内容
      */
     public EgoResult editContentService(TbContent content);
+
+    /**
+     * 网站门户-根据内容分类id加载其所有网站内容
+     */
+    public List<TbContent> loadContentListByCidService(Long categoryId);
 }

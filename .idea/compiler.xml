@@ -8,12 +8,15 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ego-common" />
         <module name="ego-manager-web" />
+        <module name="ego-portal-web" />
         <module name="ego-rpc-mapper" />
         <module name="ego-rpc-pojo" />
         <module name="ego-rpc-service" />
         <module name="ego-rpc-service-impl" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8" />
+    <bytecodeTargetLevel target="8">
+      <module name="ego-portal-web-te" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

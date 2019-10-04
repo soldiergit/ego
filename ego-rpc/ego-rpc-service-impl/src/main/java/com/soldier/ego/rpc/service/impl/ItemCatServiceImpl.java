@@ -46,4 +46,11 @@ public class ItemCatServiceImpl implements ItemCatService {
 
         return itemCat;
     }
+
+    @Override
+    public List<TbItemCat> loadItemCatListService() {
+        //动态产生where条件
+        TbItemCatExample example = new TbItemCatExample();
+        return tbItemCatMapper.selectByExample(example);
+    }
 }

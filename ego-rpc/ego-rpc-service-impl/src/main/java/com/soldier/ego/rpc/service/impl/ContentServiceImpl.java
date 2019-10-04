@@ -38,7 +38,7 @@ public class ContentServiceImpl implements ContentService {
             //执行分页操作
             Page ps = PageHelper.startPage(page, rows);
 
-            //查询
+            //动态产生where条件
             TbContentExample example = new TbContentExample();
             TbContentExample.Criteria criteria = example.createCriteria();
             criteria.andCategoryIdEqualTo(categoryId);
@@ -101,6 +101,23 @@ public class ContentServiceImpl implements ContentService {
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("##############更新网站内容失败################");
+        }
+        return null;
+    }
+
+    @Override
+    public List<TbContent> loadContentListByCidService(Long categoryId) {
+        try {
+            //动态产生where条件
+            TbContentExample example = new TbContentExample();
+
+            //where category_id = ?
+            TbContentExample.Criteria criteria = example.createCriteria();
+            criteria.andCategoryIdEqualTo(categoryId);
+            return tbContentMapper.selectByExampleWithBLOBs(example);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("##############网站门户-加载首页的商品类目失败################");
         }
         return null;
     }

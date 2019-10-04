@@ -45,7 +45,7 @@
 3. 注册&登陆 支付 会员中心
 4. 商品展示
 5. 订单提交
-6. 门户 商品搜索
+6. 网站门户 商品搜索
 7. 客户服务 公告 帮助中心 社区
 8. 后台
 9. 财务管理
@@ -144,8 +144,19 @@ ssh 172.18.25.172
 cd /usr/local/nginx/sbin/
 ./nginx
 ```
-4. 发布RPC服务
+4. 启动Redis集群
+```cfml
+ssh 172.18.25.174
+cd /usr/local/redis/bin/
+./redis-server redis-6380.conf
+./redis-server redis-6381.conf
+./redis-server redis-6382.conf
+./redis-server redis-6383.conf
+./redis-server redis-6384.conf
+./redis-server redis-6385.conf
+```
+5. 发布RPC服务
 ```html
 运行ego-rpc-service-impl包下的com.soldier.ego.test.ProviderTest的main方法
 ```
-5. 启动tomcat
+6. 启动tomcat

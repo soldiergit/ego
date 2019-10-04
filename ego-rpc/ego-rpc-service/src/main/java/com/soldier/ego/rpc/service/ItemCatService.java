@@ -25,4 +25,9 @@ public interface ItemCatService {
      * @param id 商品类目id
      */
     public TbItemCat loadItemCatByIdService(Long id);
+
+    /**
+     * 网站门户-加载首页的商品类目
+     */
+    public List<TbItemCat> loadItemCatListService();
 }

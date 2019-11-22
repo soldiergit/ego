@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <!--dubbo模块-->
     <artifactId>ego-rpc</artifactId>
     <packaging>pom</packaging>
     <modules>

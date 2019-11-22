@@ -125,38 +125,47 @@
 8. [INFO] ego-manager-web Maven Webapp                                       [war]
 
 #### 运行项目
-1. 启动Zookeeper服务注册中心
+1. 启动Zookeeper服务注册中心(172.18.25.171，192.168.1.171)
 ```cfml
 ssh 172.18.25.171
 cd /usr/local/zookeeper
 ./zk1/bin/zkServer.sh start
 ./zk2/bin/zkServer.sh start
 ./zk3/bin/zkServer.sh start
-./zk1/bin/zkCli.sh
 ```
-2. 启动ftp服务器
+2. 启动ftp服务器(172.18.25.172，192.168.1.172)
 ```cfml
 ssh 172.18.25.172（已配置开机默认启动）
 ```
-3. 启动Http服务器
+3. 启动Http服务器(172.18.25.172，192.168.1.172)
 ```cfml
 ssh 172.18.25.172
 cd /usr/local/nginx/sbin/
 ./nginx
 ```
-4. 启动Redis集群
+4. 启动Redis集群(172.18.25.174，192.168.1.174)
 ```cfml
-ssh 172.18.25.174
-cd /usr/local/redis/bin/
-./redis-server redis-6380.conf
-./redis-server redis-6381.conf
-./redis-server redis-6382.conf
-./redis-server redis-6383.conf
-./redis-server redis-6384.conf
-./redis-server redis-6385.conf
+ssh 172.18.25.173
+cd /usr/local
+./tomcat-01/bin/startup.sh
+./tomcat-02/bin/startup.sh
+./tomcat-03/bin/startup.sh
+./tomcat-04/bin/startup.sh
 ```
-5. 发布RPC服务
+5. 启动Solr集群(172.18.25.173，192.168.1.173)
+ ```cfml
+ ssh 172.18.25.174
+ cd /usr/local/redis/bin/
+ ./redis-server redis-6380.conf
+ ./redis-server redis-6381.conf
+ ./redis-server redis-6382.conf
+ ./redis-server redis-6383.conf
+ ./redis-server redis-6384.conf
+ ./redis-server redis-6385.conf
+ ```
+
+6. 发布RPC服务
 ```html
 运行ego-rpc-service-impl包下的com.soldier.ego.test.ProviderTest的main方法
 ```
-6. 启动tomcat
+7. 启动tomcat

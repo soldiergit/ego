@@ -50,4 +50,10 @@ public interface ItemService {
      * @param itemDesc  商品描述信息（富文本编辑器内容）
      */
     public EgoResult updateItemService(TbItem item, TbItemDesc itemDesc, TbItemParamItem itemParamItem);
+
+    /**
+     * 根据id获取商品信息
+     * @param id    商品id
+     */
+    public TbItem selectItemById(Long id);
 }

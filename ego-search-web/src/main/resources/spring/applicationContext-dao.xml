@@ -13,5 +13,7 @@
     <!--实例化访问solr集群的api对象-->
     <bean id="cloudSolrServer" class="org.apache.solr.client.solrj.impl.CloudSolrServer">
         <constructor-arg name="zkHost" value="172.18.25.171:2181,172.18.25.171:2182,172.18.25.171:2183"></constructor-arg>
+        <!--设置访问的solr实例名称-->
+        <property name="defaultCollection" value="bjsxt"></property>
     </bean>
 </beans>

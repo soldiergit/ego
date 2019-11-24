@@ -140,4 +140,9 @@ public class ItemServiceImpl implements ItemService {
 
         return EgoResult.ok();
     }
+
+    @Override
+    public TbItem selectItemById(Long id) {
+        return tbItemMapper.selectByPrimaryKey(id);
+    }
 }

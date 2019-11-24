@@ -123,6 +123,8 @@
 6. [INFO] ego-rpc-service                                                    [jar]
 7. [INFO] ego-rpc-service-impl                                               [jar]
 8. [INFO] ego-manager-web Maven Webapp                                       [war]
+9. [INFO] ego-portal-web Maven Webapp                                        [war]
+10. [INFO] ego-search-web Maven Webapp                                       [war]
 
 #### 运行项目
 1. 启动Zookeeper服务注册中心(172.18.25.171，192.168.1.171)
@@ -145,15 +147,6 @@ cd /usr/local/nginx/sbin/
 ```
 4. 启动Redis集群(172.18.25.174，192.168.1.174)
 ```cfml
-ssh 172.18.25.173
-cd /usr/local
-./tomcat-01/bin/startup.sh
-./tomcat-02/bin/startup.sh
-./tomcat-03/bin/startup.sh
-./tomcat-04/bin/startup.sh
-```
-5. 启动Solr集群(172.18.25.173，192.168.1.173)
- ```cfml
  ssh 172.18.25.174
  cd /usr/local/redis/bin/
  ./redis-server redis-6380.conf
@@ -162,10 +155,20 @@ cd /usr/local
  ./redis-server redis-6383.conf
  ./redis-server redis-6384.conf
  ./redis-server redis-6385.conf
+
+```
+5. 启动Solr集群(172.18.25.173，192.168.1.173)
+ ```cfml
+ ssh 172.18.25.173
+ cd /usr/local
+ ./tomcat-01/bin/startup.sh
+ ./tomcat-02/bin/startup.sh
+ ./tomcat-03/bin/startup.sh
+ ./tomcat-04/bin/startup.sh
  ```
 
 6. 发布RPC服务
 ```html
 运行ego-rpc-service-impl包下的com.soldier.ego.test.ProviderTest的main方法
 ```
-7. 启动tomcat
+7. 启动商品门户(ego-portal-web)和商品检索(ego-search-web)的tomcat

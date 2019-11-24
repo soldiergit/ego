@@ -9,8 +9,8 @@
 	<dubbo:application name="ego-rpc-provider" />
 
 	<!-- 指定注册中心，有两个地址192.168.1.171、172.18.25.171 -->
-    <!--<dubbo:registry address="172.18.25.171:2181,172.18.25.171:2182,172.18.25.171:2183" protocol="zookeeper" />-->
-    <dubbo:registry address="192.168.1.171:2181,192.168.1.171:2182,192.168.1.171:2183" protocol="zookeeper" />
+    <dubbo:registry address="172.18.25.171:2181,172.18.25.171:2182,172.18.25.171:2183" protocol="zookeeper" />
+    <!--<dubbo:registry address="192.168.1.171:2181,192.168.1.171:2182,192.168.1.171:2183" protocol="zookeeper" />-->
 
 	<!-- 指定当前项目发布dubbo服务的方式 -->
 	<!-- 指定服务发布的协议：dubbo协议 -->
@@ -25,5 +25,6 @@
 	 <dubbo:service interface="com.soldier.ego.rpc.service.ItemParamItemService" ref="itemParamItemServiceImpl"></dubbo:service>
 	 <dubbo:service interface="com.soldier.ego.rpc.service.ContentCategoryService" ref="contentCategoryServiceImpl"></dubbo:service>
 	 <dubbo:service interface="com.soldier.ego.rpc.service.ContentService" ref="contentServiceImpl"></dubbo:service>
+	 <dubbo:service interface="com.soldier.ego.rpc.service.UserService" ref="userServiceImpl"></dubbo:service>
 
 </beans>

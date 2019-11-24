@@ -30,6 +30,7 @@ public class ContentController {
 
     /**
      * 处理网站内容分页查询的请求
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "/content/query/list", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody
@@ -39,6 +40,7 @@ public class ContentController {
 
     /**
      * 处理新增网站内容的请求
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "/content/save", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody
@@ -48,6 +50,7 @@ public class ContentController {
 
     /**
      * 处理批量删除网站内容的请求
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "/content/delete", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody
@@ -57,6 +60,7 @@ public class ContentController {
 
     /**
      * 处理修改网站内容的请求
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "/content/edit", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody

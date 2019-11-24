@@ -25,8 +25,8 @@ public class FtpUtils {
         /**
          * 完成图片的上传，通过ftp将图片上传到图片服务器
          */
-//        String hostname="172.18.25.172";
-        String hostname="192.168.1.172";
+        String hostname="172.18.25.172";
+//        String hostname="192.168.1.172";
         int port=21;
         String username="ftpuser";
         String password="ftpuser";

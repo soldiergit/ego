@@ -23,6 +23,7 @@ public class PortalContentController {
 
     /**
      * 处理加载(网站门户)大广告位内容的请求
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "/content/index/list", produces = MediaType.TEXT_HTML_VALUE+";charset=UTF-8")
     @ResponseBody

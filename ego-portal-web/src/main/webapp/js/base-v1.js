@@ -1,9 +1,11 @@
  
 function login() {
-    return location.href = "http://localhost:8084/user/showLogin";
+    //  页面跳转
+    return location.href = "http://localhost:8083/login";
 }
-function regist() {
-    return location.href = "http://localhost:8084/user/showRegister";
+function register() {
+    //  页面跳转
+    return location.href = "http://localhost:8083/register";
 }
 function createCookie(a, b, c, d) {
     var d = d ? d : "/";

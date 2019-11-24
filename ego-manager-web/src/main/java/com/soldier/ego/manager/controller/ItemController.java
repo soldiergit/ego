@@ -28,6 +28,7 @@ public class ItemController {
     /**
      * 处理商品信息分页查询的请求
      *      默认第1页，30条记录
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "item/list", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody
@@ -37,6 +38,7 @@ public class ItemController {
 
     /**
      * 商品信息的上架请求
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "item/reshelf", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody
@@ -46,6 +48,7 @@ public class ItemController {
 
     /**
      * 商品信息的下架请求
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "item/instock", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody
@@ -55,6 +58,7 @@ public class ItemController {
 
     /**
      * 商品信息的删除请求
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "item/delete", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody
@@ -64,6 +68,7 @@ public class ItemController {
 
     /**
      * 商品信息的发布请求
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "item/save", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody
@@ -73,6 +78,7 @@ public class ItemController {
 
     /**
      * 商品信息的更新请求
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "item/update", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody

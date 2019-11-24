@@ -31,6 +31,7 @@ public class ItemCatController {
      * 处理加载商品类目的请求
      *      默认加载一级类目
      *      required = false --> 非必须
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "/item/cat/list", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody
@@ -40,6 +41,7 @@ public class ItemCatController {
 
     /**
      * 处理根据id查询商品类目的请求
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "/item/cat/query/{id}", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody

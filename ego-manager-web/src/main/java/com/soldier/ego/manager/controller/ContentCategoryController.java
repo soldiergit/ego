@@ -30,6 +30,7 @@ public class ContentCategoryController {
     /**
      * 处理加载网站内容分类(树)的请求
      *      默认加载一级类目
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "/content/category/list", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody
@@ -39,6 +40,7 @@ public class ContentCategoryController {
 
     /**
      * 处理新增内容分类节点的请求
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "/content/category/create", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody
@@ -48,6 +50,7 @@ public class ContentCategoryController {
 
     /**
      * 处理删除内容分类节点的请求
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "/content/category/delete", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody
@@ -62,6 +65,7 @@ public class ContentCategoryController {
 
     /**
      * 处理修改内容分类节点的请求
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "/content/category/update", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody

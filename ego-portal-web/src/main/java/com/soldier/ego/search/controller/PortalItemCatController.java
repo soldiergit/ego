@@ -23,6 +23,7 @@ public class PortalItemCatController {
 
     /**
      * 处理加载(网站门户)商品类目的请求
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "/item/cat", produces = MediaType.TEXT_HTML_VALUE+";charset=UTF-8")
     @ResponseBody

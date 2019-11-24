@@ -25,6 +25,7 @@ public class ItemDescController {
 
     /**
      * 加载商品描述信息的请求
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "query/item/desc/{itemId}", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody

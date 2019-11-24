@@ -88,12 +88,12 @@
 ######2.3.3 技术选型
 1. Spring、SpringMVC、Mybatis
 2. JSP、JSTL、jQuery、jQuery plugin、EasyUI、KindEditor（富文本编辑器）、CSS+DIV
-3. Redis（缓存服务器）
-4. Solr（搜索）
+3. Redis    （缓存服务器）
+4. Solr     （搜索）
 5. Dubbo RPC（Remote Procedure Call）解决方案
-6. Mysql
-7. Nginx（web 服务器）
-8. Maven
+6. Mysql    （数据库）
+7. Nginx    （web 服务器）
+8. Maven    （项目构建管理工具）
 
 ######2.3.4 开发工具和环境
 1. Idea
@@ -102,7 +102,7 @@
 4. JDK 1.8
 5. Mysql 5.7
 6. Nginx 1.8.0
-7. Solr4.10.3
+7. Solr  4.10.3
 8. Redis 3.0.0
 9. Ubuntu 19.04 操作系统
 
@@ -125,6 +125,7 @@
 8. [INFO] ego-manager-web Maven Webapp                                       [war]
 9. [INFO] ego-portal-web Maven Webapp                                        [war]
 10. [INFO] ego-search-web Maven Webapp                                       [war]
+10. [INFO] ego-sso-web Maven Webapp                                          [war]
 
 #### 运行项目
 1. 启动Zookeeper服务注册中心(172.18.25.171，192.168.1.171)
@@ -166,7 +167,6 @@ cd /usr/local/nginx/sbin/
  ./tomcat-03/bin/startup.sh
  ./tomcat-04/bin/startup.sh
  ```
-
 6. 发布RPC服务
 ```html
 运行ego-rpc-service-impl包下的com.soldier.ego.test.ProviderTest的main方法

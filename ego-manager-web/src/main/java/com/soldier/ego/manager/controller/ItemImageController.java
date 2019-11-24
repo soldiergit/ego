@@ -26,6 +26,7 @@ public class ItemImageController {
     /**
      * 处理图片上传请求
      *      参数uploadFile必须与前端命名一致
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "pic/upload", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody

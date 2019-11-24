@@ -25,6 +25,7 @@ public class ItemParamItemController {
 
     /**
      * 处理根据商品id查询商品规格参数信息的请求
+     *      @ResponseBody 异步的，不会进行跳转
      */
     @RequestMapping(value = "param/item/query/{itemId}", produces = MediaType.APPLICATION_JSON_VALUE+";charset=UTF-8")
     @ResponseBody

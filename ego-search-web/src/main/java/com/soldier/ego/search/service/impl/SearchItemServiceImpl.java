@@ -2,7 +2,7 @@ package com.soldier.ego.search.service.impl;
 
 import com.soldier.ego.rpc.pojo.TbItem;
 import com.soldier.ego.rpc.service.ItemService;
-import com.soldier.ego.search.dao.ItemDao;
+import com.soldier.ego.search.dao.ItemSolrCloudDao;
 import com.soldier.ego.search.entity.Item;
 import com.soldier.ego.search.entity.SearchResult;
 import com.soldier.ego.search.service.SearchItemService;
@@ -29,7 +29,7 @@ public class SearchItemServiceImpl implements SearchItemService {
 
     //  注入dao对象
     @Autowired
-    private ItemDao itemDao;
+    private ItemSolrCloudDao itemSolrCloudDao;
 
     //注入的是远程服务的代理对象
     @Autowired
@@ -65,17 +65,16 @@ public class SearchItemServiceImpl implements SearchItemService {
         params.setStart(start);
         params.setRows(rows);
 
+        //  设定高亮参数
+        params.setHighlight(true);
+        params.addHighlightField("item_title");
+        params.setHighlightSimplePost("<font color='red'>");    //设置高亮前缀
+        params.setHighlightSimplePost("</font>");               //设置高亮后缀
 
         /**
          * 调用dao方法查询
          */
-        QueryResponse response = itemDao.loadItem(params);
-
-        //  设定高亮参数
-        params.setHighlight(true);
-        params.addHighlightField("title");
-        params.setHighlightSimplePost("<font color='red'>");    //设置高亮前缀
-        params.setHighlightSimplePost("</font>");               //设置高亮后缀
+        QueryResponse response = itemSolrCloudDao.loadItem(params);
 
         //  获取本次查询到的文档集合
         SolrDocumentList docList = response.getResults();
@@ -96,13 +95,13 @@ public class SearchItemServiceImpl implements SearchItemService {
             //  获得某个商品信息的高亮数据
             Map<String, List<String>> map = highlighting.get(id);
             //  获得某个商品的某个字段的高亮数据
-            List<String> titles = map.get("title");
-            if (titles != null && titles.size() > 0) item.setTitle(titles.get(0));
+            List<String> titles = map.get("item_title");
+            if (titles != null && titles.size() > 0) item.setItem_title(titles.get(0));
         }
 
         //  封装
         SearchResult result = new SearchResult();
-        result.setTotalPages(Long.parseLong(totalPages+""));
+        result.setTotalPages(Long.parseLong(String.valueOf(totalPages)));
         result.setTotal(total);
         result.setItemList(itemList);
 

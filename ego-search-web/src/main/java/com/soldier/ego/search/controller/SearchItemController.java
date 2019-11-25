@@ -6,6 +6,7 @@ import com.soldier.ego.search.service.SearchItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,13 +36,15 @@ public class SearchItemController {
         //  解码，防止乱码，因为是通过路径传参
         String item_keywords = null;
         try {
-            item_keywords = new String(key.getBytes("ISO-8859-1"), "UTF-8");
+
+            if (!StringUtils.isEmpty(key)) item_keywords = new String(key.getBytes("ISO-8859-1"), "UTF-8");
             //  调研service接口
             SearchResult result = searchItemService.loadItemService(item_keywords, page);
 
             //  EL表达式取值
             model.addAttribute("query", item_keywords);
             model.addAttribute("itemList", result.getItemList());
+            model.addAttribute("page", page);
             model.addAttribute("totalPages", result.getTotalPages());
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();

@@ -113,4 +113,15 @@ public class TbItem implements Serializable {
     public void setUpdated(Date updated) {
         this.updated = updated;
     }
+
+    private String[] images;
+
+    /**
+     * 因为有多个图片，把当前图片地址切割了，返回出去
+     */
+    public String[] getImages() {
+        String[] images = image.split(",");
+        return images;
+    }
+
 }

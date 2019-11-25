@@ -1,8 +1,5 @@
 package com.soldier.ego.search.service;
 
-import com.soldier.ego.rpc.pojo.TbItem;
-import com.soldier.ego.search.entity.SearchResult;
-
 /**
  * @ProjectName:ego
  * @author:soldier

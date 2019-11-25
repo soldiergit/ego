@@ -145,4 +145,12 @@ public class ItemServiceImpl implements ItemService {
     public TbItem selectItemById(Long id) {
         return tbItemMapper.selectByPrimaryKey(id);
     }
+
+    @Override
+    public List<TbItem> selectAll() {
+        //查询数据库中的数据
+        TbItemExample example = new TbItemExample();
+
+        return tbItemMapper.selectByExample(example);
+    }
 }

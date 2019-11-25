@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <!--数据库与实体映射模块-->
     <artifactId>ego-rpc-mapper</artifactId>
 
     <dependencies>

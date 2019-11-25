@@ -16,15 +16,17 @@
 	<!-- 指定服务发布的协议：dubbo协议 -->
 	<!-- 指定服务发布的端口：10000 -->
 	<dubbo:protocol name="dubbo" port="20000" />
-	 
-	 <!-- 发布dubbo服务 -->
-	 <dubbo:service interface="com.soldier.ego.rpc.service.ItemService" ref="itemServiceImpl"></dubbo:service><!-- timeout="1200000"-->
-	 <dubbo:service interface="com.soldier.ego.rpc.service.ItemCatService" ref="itemCatServiceImpl"></dubbo:service>
-	 <dubbo:service interface="com.soldier.ego.rpc.service.ItemDescService" ref="itemDescServiceImpl"></dubbo:service>
-	 <dubbo:service interface="com.soldier.ego.rpc.service.ItemParamService" ref="itemParamServiceImpl"></dubbo:service><!-- timeout="3000"-->
-	 <dubbo:service interface="com.soldier.ego.rpc.service.ItemParamItemService" ref="itemParamItemServiceImpl"></dubbo:service>
-	 <dubbo:service interface="com.soldier.ego.rpc.service.ContentCategoryService" ref="contentCategoryServiceImpl"></dubbo:service>
-	 <dubbo:service interface="com.soldier.ego.rpc.service.ContentService" ref="contentServiceImpl"></dubbo:service>
-	 <dubbo:service interface="com.soldier.ego.rpc.service.UserService" ref="userServiceImpl"></dubbo:service>
 
+	<!--Dubbo服务端全局超时配置-->
+	<dubbo:provider timeout="5000" />
+
+	<!-- 发布dubbo服务 -->
+	<dubbo:service interface="com.soldier.ego.rpc.service.ItemService" ref="itemServiceImpl"></dubbo:service><!-- timeout="1200000"-->
+	<dubbo:service interface="com.soldier.ego.rpc.service.ItemCatService" ref="itemCatServiceImpl"></dubbo:service>
+	<dubbo:service interface="com.soldier.ego.rpc.service.ItemDescService" ref="itemDescServiceImpl"></dubbo:service>
+	<dubbo:service interface="com.soldier.ego.rpc.service.ItemParamService" ref="itemParamServiceImpl"></dubbo:service><!-- timeout="3000"-->
+	<dubbo:service interface="com.soldier.ego.rpc.service.ItemParamItemService" ref="itemParamItemServiceImpl"></dubbo:service>
+	<dubbo:service interface="com.soldier.ego.rpc.service.ContentCategoryService" ref="contentCategoryServiceImpl"></dubbo:service>
+	<dubbo:service interface="com.soldier.ego.rpc.service.ContentService" ref="contentServiceImpl"></dubbo:service>
+	<dubbo:service interface="com.soldier.ego.rpc.service.UserService" ref="userServiceImpl"></dubbo:service>
 </beans>

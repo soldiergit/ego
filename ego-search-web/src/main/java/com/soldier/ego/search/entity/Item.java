@@ -14,14 +14,14 @@ public class Item {
     //  导入solr的的标签
     @Field("id")
     private String id;
-    @Field("title")
-    private String title;
-    @Field("sell_point")
-    private String sell_point;
-    @Field("price")
-    private Long price;
-    @Field("image")
-    private String image;
+    @Field("item_title")
+    private String item_title;
+    @Field("item_sell_point")
+    private String item_sell_point;
+    @Field("item_price")
+    private Long item_price;
+    @Field("item_image")
+    private String item_image;
     @Field("category_name")
     private String category_name;
 
@@ -33,36 +33,36 @@ public class Item {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getItem_title() {
+        return item_title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setItem_title(String item_title) {
+        this.item_title = item_title;
     }
 
-    public String getSell_point() {
-        return sell_point;
+    public String getItem_sell_point() {
+        return item_sell_point;
     }
 
-    public void setSell_point(String sell_point) {
-        this.sell_point = sell_point;
+    public void setItem_sell_point(String item_sell_point) {
+        this.item_sell_point = item_sell_point;
     }
 
-    public Long getPrice() {
-        return price;
+    public Long getItem_price() {
+        return item_price;
     }
 
-    public void setPrice(Long price) {
-        this.price = price;
+    public void setItem_price(Long item_price) {
+        this.item_price = item_price;
     }
 
-    public String getImage() {
-        return image;
+    public String getItem_image() {
+        return item_image;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setItem_image(String item_image) {
+        this.item_image = item_image;
     }
 
     public String getCategory_name() {
@@ -77,7 +77,7 @@ public class Item {
      * 因为有多个图片，把当前图片地址切割了，返回出去
      */
     public String[] getImages() {
-        String[] images = image.split(",");
+        String[] images = item_image.split(",");
         return images;
     }
 }

@@ -60,7 +60,6 @@
                             //创建一个保存广告图片编号的div
                             var divNum = $('<div class="slide-controls"></div>');
 
-
                             //将ul添加到div
                             div.append(ul);
                             //将divNum添加到div

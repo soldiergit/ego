@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <!--实体类模块-->
     <artifactId>ego-rpc-pojo</artifactId>
 
     <build>

@@ -56,4 +56,9 @@ public interface ItemService {
      * @param id    商品id
      */
     public TbItem selectItemById(Long id);
+
+    /**
+     * 查询所有商品信息，用于导入到solrCloud索引库
+     */
+    public List<TbItem> selectAll();
 }

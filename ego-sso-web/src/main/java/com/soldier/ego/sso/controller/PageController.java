@@ -19,6 +19,7 @@ public class PageController {
     /**
      * required = false --> 非必须
      * @param url       跳转的路径
+     * url为空时默认为index
      * @param redirect  用户登录成功后需要跳转的路径（详情看ego-item-web里的LoginIntercptor和login.jsp）
      */
     @RequestMapping("/{url}")

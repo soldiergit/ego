@@ -9,6 +9,7 @@
         <module name="ego-common" />
         <module name="ego-item-web" />
         <module name="ego-manager-web" />
+        <module name="ego-order-web" />
         <module name="ego-portal-web" />
         <module name="ego-rpc-mapper" />
         <module name="ego-rpc-pojo" />

@@ -29,4 +29,5 @@
 	<dubbo:service interface="com.soldier.ego.rpc.service.ContentCategoryService" ref="contentCategoryServiceImpl"></dubbo:service>
 	<dubbo:service interface="com.soldier.ego.rpc.service.ContentService" ref="contentServiceImpl"></dubbo:service>
 	<dubbo:service interface="com.soldier.ego.rpc.service.UserService" ref="userServiceImpl"></dubbo:service>
+	<dubbo:service interface="com.soldier.ego.rpc.service.RpcOrderService" ref="rpcOrderServiceImpl"></dubbo:service>
 </beans>

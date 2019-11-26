@@ -330,6 +330,7 @@
         <module>ego-search-web</module>
         <module>ego-sso-web</module>
         <module>ego-item-web</module>
+        <module>ego-order-web</module>
     </modules>
 
 

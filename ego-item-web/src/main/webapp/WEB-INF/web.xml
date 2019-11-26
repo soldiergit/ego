@@ -60,7 +60,7 @@
 
   <servlet-mapping>
     <servlet-name>ego-item-web</servlet-name>
-    <!-- 不需要伪静态化-->
+    <!-- 伪静态化，接收.html结尾的请求-->
     <url-pattern>*.html</url-pattern>
   </servlet-mapping>
 </web-app>

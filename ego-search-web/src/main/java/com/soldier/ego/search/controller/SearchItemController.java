@@ -28,6 +28,7 @@ public class SearchItemController {
 
     /**
      * 进行页面跳转
+     * url为空时默认为index
      */
     @RequestMapping("/{url}")
     public String loadPage(@PathVariable String url, String key,

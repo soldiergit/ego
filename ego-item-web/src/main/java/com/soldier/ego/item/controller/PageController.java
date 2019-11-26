@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PageController {
 
+    /**
+     * url为空时默认为index
+     */
     @RequestMapping("/{url}")
     public String loadPage(@PathVariable String url) {
         return url;

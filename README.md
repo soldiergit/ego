@@ -115,17 +115,19 @@
 6. 运维团队：3 人，项目的发布以及维护。
 
 #### 项目model结构:
-1. [INFO] ego                                                                [pom]
-2. [INFO] ego-common                                                         [jar]
-3. [INFO] ego-rpc                                                            [pom]
-4. [INFO] ego-rpc-pojo                                                       [jar]
-5. [INFO] ego-rpc-mapper                                                     [jar]
-6. [INFO] ego-rpc-service                                                    [jar]
-7. [INFO] ego-rpc-service-impl                                               [jar]
-8. [INFO] ego-manager-web Maven Webapp                                       [war]
-9. [INFO] ego-portal-web Maven Webapp                                        [war]
-10. [INFO] ego-search-web Maven Webapp                                       [war]
-10. [INFO] ego-sso-web Maven Webapp                                          [war]
+1. [INFO] ego[pom]
+2. [INFO] ego-common[jar]
+3. [INFO] ego-rpc[pom]
+4. [INFO] ego-rpc-pojo[jar]
+5. [INFO] ego-rpc-mapper[jar]
+6. [INFO] ego-rpc-service[jar]
+7. [INFO] ego-rpc-service-impl[jar]
+8. [INFO] ego-manager-web Maven Webapp[war]-->非伪静态化
+9. [INFO] ego-portal-web Maven Webapp[war]-->伪静态化，接收.html结尾的请求
+10. [INFO] ego-search-web Maven Webapp[war]-->伪静态化，接收.html结尾的请求
+10. [INFO] ego-sso-web Maven Webapp[war]-->非伪静态化
+11. [INFO] ego-item-web Maven Webapp[war]-->伪静态化，接收.html结尾的请求；有登录拦截器
+12. [INFO] ego-order-web Maven Webapp[war]-->非伪静态化；有登录拦截器
 
 #### 运行项目
 1. 启动Zookeeper服务注册中心(172.18.25.171，192.168.1.171)

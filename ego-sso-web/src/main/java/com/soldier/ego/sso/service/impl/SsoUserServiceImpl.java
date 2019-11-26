@@ -67,7 +67,7 @@ public class SsoUserServiceImpl implements SsoUserService {
                 String token = UUID.randomUUID().toString();
                 // 将用户信息保存到redis数据库
                 jedisCluster.set(token, userJsonStr);
-                //  设置token的有效期为30分钟
+                //  设置token的有效期为3分钟
                 jedisCluster.expire(token, 1800);
 
                 /**

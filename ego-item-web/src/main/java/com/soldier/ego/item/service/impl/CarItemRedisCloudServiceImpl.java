@@ -49,11 +49,11 @@ public class CarItemRedisCloudServiceImpl implements CarItemRedisCloudService {
         }
 
         /**
-         * 判断该用户购买的特定商品的购物车是否存在
+         * 判断该用户购买的特定商品在其购物车集合中是否存在
          */
         String carItemByItemId = carItemRedisCloudDao.findCarItemByItemId(String.valueOf(userId), String.valueOf(itemId));
         if (StringUtils.isEmpty(carItemByItemId)) {
-            //  创建购物车对象
+            //  创建该商品的购物车对象
             carItem = new CarItem();
             //  将商品信息放入购物车
             carItem.setItem(tbItem);
@@ -76,7 +76,7 @@ public class CarItemRedisCloudServiceImpl implements CarItemRedisCloudService {
     }
 
     @Override
-    public Map<Long, CarItem> findCarListByUserIdService(Long userId) {
+    public Map<Long, CarItem> findCarMapByUserIdService(Long userId) {
 
         Map<Long, CarItem> carMap = new HashMap<>();
 
@@ -91,5 +91,50 @@ public class CarItemRedisCloudServiceImpl implements CarItemRedisCloudService {
         }
 
         return carMap;
+    }
+
+    @Override
+    public String updateCarItemNumService(Long itemId, Long userId, Integer num) {
+        try {
+            //  从该用户的购物车集合中获得需要修改商品的购物车对象
+            String carItemByItemId = carItemRedisCloudDao.findCarItemByItemId(String.valueOf(userId), String.valueOf(itemId));
+
+            //  将carItemByItemId反序列化为CarItem对象
+            CarItem carItem = JsonUtils.jsonToPojo(carItemByItemId, CarItem.class);
+            carItem.setNum(num);
+
+            //  将carItem修改后数据更新到redis数据库
+            carItemRedisCloudDao.updateCarMapNum(String.valueOf(userId), String.valueOf(itemId), JsonUtils.objectToJson(carItem));
+
+            return "ok";
+        } catch (Exception e) {
+            System.out.println("####更新CarItemNum失败####");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public void deleteCarItemService(Long itemId, Long userId) {
+        carItemRedisCloudDao.deleteCarMapItem(String.valueOf(userId), String.valueOf(itemId));
+    }
+
+    @Override
+    public String deleteBatchCarItemService(String itemIds, Long userId) {
+        try {
+            for (String itemId : itemIds.split(",")) {
+                carItemRedisCloudDao.deleteCarMapItem(String.valueOf(userId), itemId);
+            }
+            return "ok";
+        } catch (Exception e) {
+            System.out.println("####批量删除CarItemNum失败####");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public void deleteAllCarItemService(Long userId) {
+        carItemRedisCloudDao.deleteCarMapAll(String.valueOf(userId));
     }
 }

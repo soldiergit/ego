@@ -24,19 +24,37 @@ public class CarItemRedisCloudDaoImpl implements CarItemRedisCloudDao {
 
     @Override
     public void saveCarMap(String userId, Map<String, String> carMap) {
-        //  使用jedis保存集合的方法保存
+        //  新建、保存、覆盖userId用户购物车map集合到redis数据库
         jedisCluster.hmset(userId, carMap);
     }
 
     @Override
     public Map<String, String> findCarMapByUserId(String userId) {
-        //  查询某个key的map集合
+        //  查询userId用户购物车map集合
         return jedisCluster.hgetAll(userId);
     }
 
     @Override
     public String findCarItemByItemId(String userId, String itemId) {
-        //  查询某个key的map集合中某个字key的值
+        //  查询userId用户购物车map集合中itemId对应的购物车对象
         return jedisCluster.hget(userId, itemId);
+    }
+
+    @Override
+    public void updateCarMapNum(String userId, String itemId, String carItemStr) {
+        //  直接覆盖userId用户购物车map集合中，key为itemId的value
+        jedisCluster.hset(userId, itemId, carItemStr);
+    }
+
+    @Override
+    public void deleteCarMapItem(String userId, String itemId) {
+        //  删除userId用户购物车map集合中，key为itemId的数据
+        jedisCluster.hdel(userId, itemId);
+    }
+
+    @Override
+    public void deleteCarMapAll(String userId) {
+        //  直接删除购物车Map的key
+        jedisCluster.del(userId);
     }
 }

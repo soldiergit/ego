@@ -45,7 +45,7 @@
 <div class="cart-inner">
     <div class="cart-thead clearfix">
         <div class="column t-checkbox form"><input data-cart="toggle-cb" name="toggle-checkboxes" id="toggle-checkboxes_up"
-                                                   type="checkbox" checked="" value=""><label for="toggle-checkboxes_up">全选</label></div>
+                                                   type="checkbox" class="checkAllItem" value=""><label for="toggle-checkboxes_up">全选</label></div>
         <div class="column t-goods">商品</div>
         <div class="column t-price">易购价</div>
         <div class="column t-promotion">优惠</div>
@@ -56,13 +56,16 @@
     <div id="product-list" class="cart-tbody">
         <!-- ************************商品开始********************* -->
         <c:set var="totalPrice" value="0"></c:set>
+        <c:set var="carLen" value="0"></c:set>
         <c:forEach items="${carMap}" var="cart">
             <%--计算商品价格总计--%>
         	<c:set var="totalPrice"  value="${ totalPrice + (cart.value.item.price * cart.value.num)}"/>
+            <%--记录是否有商品--%>
+        	<c:set var="carLen"  value="1"/>
 	        <div id="product_11345721" data-bind="rowid:1" class="item item_selected ">
 		        <div class="item_form clearfix">
 		            <div class="cell p-checkbox"><input data-bind="cbid:1" class="checkbox" type="checkbox" name="checkItem"
-                                                        checked="" value="${cart.value.item.id}"></div>
+                                                        value="${cart.value.item.id}"></div>
 		            <div class="cell p-goods">
 		                <div class="p-img">
 		                	<a href="/item/${cart.value.item.id }.html" target="_blank">
@@ -109,11 +112,12 @@
         <div class="ui-ceilinglamp-1" style="width: 988px; height: 49px;"><div class="cart-dibu ui-ceilinglamp-current" style="width: 988px; height: 49px;">
           <div class="control fdibu fdibucurrent">
               <span class="column t-checkbox form">
-                  <input data-cart="toggle-cb" name="toggle-checkboxes" id="toggle-checkboxes_down" type="checkbox" checked="" value="" class="jdcheckbox">
+                  <input data-cart="toggle-cb" name="toggle-checkboxes" id="toggle-checkboxes_down" type="checkbox" value="" class="jdcheckbox checkAllItem">
                   <label for="toggle-checkboxes_down">
                           全选
                   </label>
               </span>
+              <c:if test="${carLen == 1}">
               <span class="delete">
                   <b>
                   </b>
@@ -121,6 +125,14 @@
                           删除选中的商品
                   </a>
               </span>
+              <span class="deleteAll">
+                  <b>
+                  </b>
+                  <a href="/cart/delete/all.html" clstag="clickcart|keycount|xincart|clearcartlink">
+                          清空购物村
+                  </a>
+              </span>
+              </c:if>
               <span class="shopping">
                   <b>
                   </b>

@@ -77,8 +77,15 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <configuration>
                     <!-- 不需要上下文  http://localhost:8080/xxx.jsp -->
-                    <path>/</path>
-                    <port>8080</port>
+                    <!--<path>/</path>-->
+                    <!--<port>8080</port>-->
+
+                    <!--用于部署项目
+                            server：maven的settings.xml中关联的tomcat账号的id
+                    -->
+                    <server>176_tomcatCloud</server>
+                    <path>/ROOT</path>
+                    <url>http://172.18.25.176:6060/manager/text</url>
                 </configuration>
             </plugin>
         </plugins>

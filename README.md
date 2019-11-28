@@ -151,26 +151,93 @@ cd /usr/local/nginx/sbin/
 4. 启动Redis集群(172.18.25.174，192.168.1.174)
 ```cfml
  ssh 172.18.25.174
- cd /usr/local/redis/bin/
- ./redis-server redis-6380.conf
- ./redis-server redis-6381.conf
- ./redis-server redis-6382.conf
- ./redis-server redis-6383.conf
- ./redis-server redis-6384.conf
- ./redis-server redis-6385.conf
-
+ ./usr/local/redis/bin/redis-server redis-6380.conf
+ ./usr/local/redis/bin/redis-server redis-6381.conf
+ ./usr/local/redis/bin/redis-server redis-6382.conf
+ ./usr/local/redis/bin/redis-server redis-6383.conf
+ ./usr/local/redis/bin/redis-server redis-6384.conf
+ ./usr/local/redis/bin/redis-server redis-6385.conf
 ```
 5. 启动Solr集群(172.18.25.173，192.168.1.173)
  ```cfml
  ssh 172.18.25.173
- cd /usr/local
- ./tomcat-01/bin/startup.sh
- ./tomcat-02/bin/startup.sh
- ./tomcat-03/bin/startup.sh
- ./tomcat-04/bin/startup.sh
+ ./usr/local/tomcat-01/bin/startup.sh
+ ./usr/local/tomcat-02/bin/startup.sh
+ ./usr/local/tomcat-03/bin/startup.sh
+ ./usr/local/tomcat-04/bin/startup.sh
  ```
-6. 发布RPC服务
+6. 启动nginx代理的tomcat集群(172.18.25.176，192.168.1.176)
+ ```cfml
+ ssh 172.18.25.176
+ ./usr/local/tomcat/apache-tomcat-9.0.20-01/bin/startup.sh
+ ./usr/local/tomcat/apache-tomcat-9.0.20-02/bin/startup.sh
+ ./usr/local/tomcat/apache-tomcat-9.0.20-03/bin/startup.sh
+ ```
+7. 启动nginx反向代理_负载均衡服务器(172.18.25.175，192.168.1.175)
+ ```cfml
+ ssh 172.18.25.175
+ ./usr/local/nginx/sbin/nginx
+ # 重启命令#
+ ./usr/local/nginx/sbin/nginx -s reload
+ ```
+8. 发布RPC服务
 ```html
 运行ego-rpc-service-impl包下的com.soldier.ego.test.ProviderTest的main方法
 ```
-7. 启动商品门户(ego-portal-web)和商品检索(ego-search-web)的tomcat
+9. 启动商品门户(ego-portal-web)和商品检索(ego-search-web)的tomcat
+
+### 项目的打包发布
+#### ego-rpc服务提供者的发布
+1、install ego项目，启动Zookeeper服务注册中心、ftp服务器、Http服务器
+2、将ego-rpc-service-impl的target下生成的ego-rpc-service-impl-assembly.tar.gz上传到nginx代理的tomcat服务器
+```cfml
+scp /home/soldier/SOLDIER/IDE_project/idea_project/ego/ego-rpc/ego-rpc-service-impl/target/ego-rpc-service-impl-assembly.tar.gz 172.18.25.176:/soldier/app
+```
+3、连接tomcat服务器，解压文件
+ ```cfml
+ ssh 172.18.25.176
+ cd /soldier/app
+ tar -zxvf ego-rpc-service-impl-assembly.tar.gz
+ ./ego-rpc-service-impl/bin/start.sh
+ ```
+#### ego-manager-web服务消费者的发布
+1、修改tomcat服务器的3个tomcat的tomcat-users.xml文件，配置tomcat账户
+ ```cfml
+ vi apache-tomcat-9.0.20-01/conf/tomcat-users.xml
+ vi apache-tomcat-9.0.20-02/conf/tomcat-users.xml
+ vi apache-tomcat-9.0.20-03/conf/tomcat-users.xml
+ 末尾加入
+# 2019.11.28 10:16:25
+<role rolename="admin-gui"/>
+<role rolename="admin-script"/>
+<role rolename="manager-gui"/>
+<role rolename="manager-script"/>
+<user username="admin" password="admin" roles="manager-gui,manager-script,admin-script,admin-gui"/>
+ ```
+2、删除每个tomcat默认访问的webapps下的ROOT
+```cfml
+ rm -rf apache-tomcat-9.0.20-01/webapps/ROOT/
+ rm -rf apache-tomcat-9.0.20-02/webapps/ROOT/
+ rm -rf apache-tomcat-9.0.20-03/webapps/ROOT/
+```
+3、启动三个tomcat
+ ```cfml
+ ./apache-tomcat-9.0.20-01/bin/startup.sh
+ ./apache-tomcat-9.0.20-02/bin/startup.sh
+ ./apache-tomcat-9.0.20-03/bin/startup.sh
+ ```
+ 4、修改本地maven的settings.xml文件，关联tomcat账户；因为是用maven打包上传的
+ ```cfml
+vim /home/soldier/SOLDIER/IDE_environment/apache-maven-3.6.1/conf/settings.xml
+```
+ 加入
+ ```cfml
+<!-- 在maven中关联tomcat服务器的tomcat账户 -->
+    <server>
+      <id>176_tomcatCloud</id>
+      <username>admin</username>
+      <password>admin</password>
+    </server>
+```
+修改ego-manager-web的pom文件
+5、允许ego-manager-web的tomcat7:deploy，上传tomcat的war包

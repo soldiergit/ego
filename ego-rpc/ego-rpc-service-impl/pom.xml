@@ -102,17 +102,17 @@
         </dependency>
     </dependencies>
     <build>
-        <!-- <plugins>
-            指定项目的打包插件信息
+        <plugins>
+            <!--指定项目的打包插件信息-->
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
-                    指定打包描述文件的位置：相对项目根目录的路径
-                    assembly打包的描述文件
+                    <!--指定打包描述文件的位置：相对项目根目录的路径
+                    assembly打包的描述文件-->
                     <descriptor>assembly/assembly.xml</descriptor>
                 </configuration>
                 <executions>
-                    mvn package的时候打包
+                    <!--mvn package的时候打包-->
                     <execution>
                         <id>make-assembly</id>
                         <phase>package</phase>
@@ -122,8 +122,7 @@
                     </execution>
                 </executions>
             </plugin>
-            </plugins> -->
-        <!-- dubbo加载spring的配置文件的时候，是从META-INF/spring开始查找 -->
+        </plugins>
         <resources>
             <!-- 其他的文件拷贝到默认的位置 -->
             <resource>
@@ -135,7 +134,7 @@
                 </includes>
             </resource>
             <resource>
-                <!-- 指定从哪个文件夹拷贝 -->
+                <!-- dubbo加载spring的配置文件的时候，是从META-INF/spring开始查找 -->
                 <directory>src/main/resources/spring</directory>
                 <!-- 指定将spring配置文件拷贝到jar包中的META-INF/spring目录 -->
                 <targetPath>META-INF/spring</targetPath>

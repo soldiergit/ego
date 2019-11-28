@@ -14,11 +14,14 @@
 
 	<!-- 指定当前项目发布dubbo服务的方式 -->
 	<!-- 指定服务发布的协议：dubbo协议 -->
-	<!-- 指定服务发布的端口：10000 -->
-	<dubbo:protocol name="dubbo" port="20000" />
+	<!-- 指定服务发布的端口：20000 -->
+	<!-- 指定服务发布的地址：172.18.25.176-->
+	<dubbo:protocol name="dubbo" port="20000" host="172.18.25.176"/>
 
 	<!--Dubbo服务端全局超时配置-->
 	<dubbo:provider timeout="5000" />
+	<!--Dubbo消费端全局超时配置-->
+	<dubbo:consumer timeout="5000" />
 
 	<!-- 发布dubbo服务 -->
 	<dubbo:service interface="com.soldier.ego.rpc.service.ItemService" ref="itemServiceImpl"></dubbo:service><!-- timeout="1200000"-->
